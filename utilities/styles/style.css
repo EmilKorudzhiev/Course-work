@@ -1,9 +1,10 @@
 #mainPicTop {
   border-radius: 0;
-  background-image: url('../../images/fishing_cropped02.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
+  height: auto;
   position: relative;
+  background-image: url('../../images/fishing_cropped02.jpg');
+  background-position: center center;
+  background-size: cover;
 }
 
 .container{

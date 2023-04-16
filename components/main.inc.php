@@ -1,5 +1,5 @@
 
-<div class="jumbotron w-100 pt-5 mt-5 mb-5" id="mainPicTop">
+<div class="jumbotron w-100 pt-5 m-0 mt-5 mb-5" id="mainPicTop">
   <div class="container">
     <div class="pb-5">
 
