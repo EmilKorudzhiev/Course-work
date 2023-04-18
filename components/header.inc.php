@@ -16,7 +16,7 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0 border-bottom" id="header">
     <div class="container-fluid">
       <img class="navbar-brand" src="https://via.placeholder.com/45x45 " alt="">
       <a class="navbar-brand" href="#">Company</a>
@@ -26,19 +26,19 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+            <a class="nav-link<?php if ( $active == 'home' ) echo " active" ?>" aria-current="page" href="home.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="store.php">Store</a>
+            <a class="nav-link<?php if ( $active == 'store' ) echo " active" ?>" href="store.php">Store</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Forum</a>
+            <a class="nav-link<?php if ( $active == 'forum' ) echo " active" ?>" href="#">Forum</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link<?php if ( $active == 'contact us' ) echo " active" ?>" href="#">Contact Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">FAQ</a>
+            <a class="nav-link<?php if ( $active == 'faq' ) echo " active" ?>" href="#">FAQ</a>
           </li>
 
           <!--

@@ -26,7 +26,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Introduction to fishing</h5>
             <p class="card-text">Quick start to fishing.</p>
@@ -38,7 +38,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Licences and laws</h5>
             <p class="card-text">Don't want to get a fine? Read this.</p>
@@ -50,7 +50,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Fishing spots</h5>
             <p class="card-text">Find where and what to fish.</p>
@@ -67,7 +67,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Introduction to fishing</h5>
             <p class="card-text">Quick start to fishing.</p>
@@ -79,7 +79,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Licences and laws</h5>
             <p class="card-text">Don't want to get a fine? Read this.</p>
@@ -91,7 +91,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Fishing spots</h5>
             <p class="card-text">Find where and what to fish.</p>
@@ -108,7 +108,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Introduction to fishing</h5>
             <p class="card-text">Quick start to fishing.</p>
@@ -120,7 +120,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Licences and laws</h5>
             <p class="card-text">Don't want to get a fine? Read this.</p>
@@ -132,7 +132,7 @@
     <div class="col-md-4">
       <a href="#">
         <div class="card">
-          <img src="..\images\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
+          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
           <div class="card-body">
             <h5 class="card-title">Fishing spots</h5>
             <p class="card-text">Find where and what to fish.</p>
