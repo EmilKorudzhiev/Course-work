@@ -14,3 +14,10 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.shop-item-img{
+  object-fit: cover;
+  height: 20rem;
+  width: auto;
+  
+}
