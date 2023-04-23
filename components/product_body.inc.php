@@ -1,6 +1,7 @@
 <?php
 $id = $_GET["id"];
-$sql = "
+
+$sqlSelectItemDetails = "
 SELECT products.id, products.name, products.description, products.price, products.quantity, tags.tag, images.path 
 FROM products
 JOIN products_has_tags ON products.id = products_has_tags.products_id
@@ -8,10 +9,10 @@ JOIN tags ON products_has_tags.tags_id = tags.id
 JOIN images ON  products.id = images.products_id
 WHERE products.id = (?) ;
 ";
-$result = $connection->prepare($sql);
-$result -> execute([$id]);
+$product = $connection->prepare($sqlSelectItemDetails);
+$product -> execute([$id]);
 $productData = [];
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+while ($row = $product->fetch(PDO::FETCH_ASSOC)){
     $productData['name'] = $row['name'];
     $productData['price'] = $row['price'];
     $productData['description'] = $row['description'];
@@ -20,6 +21,12 @@ while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 }
 $productData['tags'] = array_unique($productData['tags']);
 $productData['images'] = array_unique($productData['images']);
+
+
+$sqlSelectRelatedItems = '
+
+';
+
 ?>
 
 <div class="p-5 pb-2">
@@ -74,7 +81,7 @@ $productData['images'] = array_unique($productData['images']);
     <div class="container px-1">
         <h2 class="text-center pb-3 m-0 fw-bold">Подобни продукти</h2>
 
-        <div class="row gx-4 row-cols-2 row-cols-md-4 justify-content-center"> 
+        <div class="row row-cols-2 row-cols-md-4 justify-content-center"> 
 
             <div class="col pb-3">
                 <a href="">

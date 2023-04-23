@@ -12,7 +12,8 @@
       </h2>
 
       <div class="p-5">
-        <button type="button" class="btn btn-light"><a href="#">REGISTER NOW</a></button>
+        <button type="button" class="btn btn-light"><a href="/Course-work/controllers/register.php">REGISTER NOW</a></button>
+        <button type="button" class="btn btn-light"><a href="/Course-work/controllers/login.php">LOG IN NOW</a></button>
       </div>
 
     </div>
@@ -23,7 +24,7 @@
 
   <div class="w-100 row m-0 mb-5">
 
-    <div class="col-md-4">
+    <div class="col-md-4 pb-3">
       <a href="#">
         <div class="card">
           <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
@@ -35,7 +36,7 @@
       </a>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 pb-3">
       <a href="#">
         <div class="card">
           <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
@@ -47,7 +48,7 @@
       </a>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-4 pb-3">
       <a href="#">
         <div class="card">
           <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>

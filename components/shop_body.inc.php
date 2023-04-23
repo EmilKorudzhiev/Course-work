@@ -1,7 +1,7 @@
 <div class="p-0 m-0">
     <div class="row flex-nowrap overflow-hidden">
         
-        <div class="collapse d-md-block col-xs-12 col-md-2 p-0 pt-5 bg-dark text-dark" id="sidebar">
+        <div class="collapse d-md-block col-12 col-md-2 p-0 pt-5 bg-dark text-dark" id="sidebar">
             
             <ul>
             <li class="mt-3">
@@ -16,7 +16,6 @@
                     </ul>
                 </div>
             </li>
-
             </ul>
         
             <!-- Sidebar toggle -->
@@ -29,9 +28,9 @@
 
         </div>
 
-        <div class="col ps-0 mt-4 pt-5">
+        <div class="col px-0 mt-4 pt-5">
 
-        <!-- Sidebar toggle -->
+            <!-- Sidebar toggle -->
             <div class="d-md-none col-auto text-white d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" data-bs-toggle="collapse" 
                 data-bs-target="#sidebar" aria-expanded="false" aria-controls="sidebar">
@@ -39,8 +38,8 @@
                 </button>
             </div>
 
-        <!-- Store items -->
-            <div class="w-100 row p-1 m-0">
+            <!-- Store items -->
+            <div class="row row-cols-2 row-cols-md-3 p-1 m-0">
 
                 <?php require('../components/store_item_display.inc.php'); ?> 
                 
