@@ -1,6 +1,7 @@
 <?php 
-if(isset($_SESSION["USER"])){
+if(isset($_SESSION["USER"]) && isset($_SESSION["CART"])){
   debug_to_console($_SESSION["USER"]);
+  debug_to_console($_SESSION["CART"]);
 } 
 ?>
 
@@ -22,7 +23,7 @@ if(isset($_SESSION["USER"])){
 <body>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-0 border-bottom" id="header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-1 border-bottom" id="header">
     <div class="container-fluid">
       <img class="navbar-brand" src="https://via.placeholder.com/45x45 " alt="">
       <a class="navbar-brand" href="/Course-work/controllers/home.php">Company</a>
@@ -46,6 +47,19 @@ if(isset($_SESSION["USER"])){
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'faq' ) echo " active" ?>" href="#">FAQ</a>
           </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+          <li class="nav-item">
+            <a class="nav-link<?php if ( $active == 'cart' ) echo " active" ?>" href="/Course-work/controllers/cart.php"><span class="bi bi-cart h5"></span> Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <img src="/Course-work/images/profile/<?php if(isset($_SESSION["USER"][6])){echo isset($_SESSION["USER"][6]);} else{ echo 'image-50x50.jpg';} ?>" alt="Profile" class="rounded-circle" width="30" height="30">
+            </a>
+          </li>
+        </ul>
+    
       </div>
     </div>
   </nav>

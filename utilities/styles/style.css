@@ -19,5 +19,17 @@
   object-fit: cover;
   height: 20rem;
   width: auto;
-  
+}
+
+.notification{
+  position: absolute;
+  top: 13px;
+  right: 43px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: red;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 13px;
 }

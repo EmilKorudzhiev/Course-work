@@ -7,8 +7,6 @@
             <a
         class="btn btn-link btn-floating btn-sm text-white m-1"
         href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
         ><i class="bi bi-facebook"></i
       ></a>
 
@@ -16,8 +14,7 @@
       <a
         class="btn btn-link btn-floating btn-sm text-white m-1"
         href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
+
         ><i class="bi bi-twitter"></i
       ></a>
 
@@ -25,8 +22,7 @@
       <a
         class="btn btn-link btn-floating btn-sm text-white m-1"
         href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
+
         ><i class="bi bi-google"></i
       ></a>
 
@@ -34,8 +30,7 @@
       <a
         class="btn btn-link btn-floating btn-sm text-white m-1"
         href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
+
         ><i class="bi bi-instagram"></i
       ></a>
 
@@ -43,8 +38,7 @@
       <a
         class="btn btn-link btn-floating btn-sm text-white m-1"
         href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
+
         ><i class="bi bi-linkedin"></i
       ></a>
       
@@ -52,8 +46,7 @@
       <a
         class="btn btn-link btn-floating btn-sm text-white m-1"
         href="#!"
-        role="button"
-        data-mdb-ripple-color="dark"
+
         ><i class="bi bi-github"></i
       ></a>
     </div>
