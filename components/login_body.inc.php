@@ -19,7 +19,7 @@ if(isset($_SESSION["USER"])){
                 </div>
                 <div class="px-3 pb-3">
                     <label for="password">Парола<span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" id="password" minlength="8" minlength="40" required>
+                    <input type="password" class="form-control" id="password" required>
                 </div>
                 <div class="px-3">
                     <h5 class="text-center text-danger" id="wrongCredentials"></h5>

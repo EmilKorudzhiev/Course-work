@@ -33,19 +33,19 @@
                             <div class="row mt-2">
                                 <div class="col-md-6 pb-2">
                                     <label class="labels">Име</label>
-                                    <input type="text" class="form-control" id="firstName" placeholder="Първо име" value="<?php echo $userInfo['first_name']?>">
+                                    <input type="text" class="form-control" id="firstName" placeholder="Първо име" value="<?php echo $userInfo['first_name']?>" required>
                                 </div>
                                 <div class="col-md-6 pb-2">
                                     <label class="labels">Фамилия</label>
-                                    <input type="text" class="form-control" id="surname" placeholder="Фамилия" value="<?php echo $userInfo['last_name']?>">
+                                    <input type="text" class="form-control" id="surname" placeholder="Фамилия" value="<?php echo $userInfo['last_name']?>" required>
                                 </div>
                                 <div class="col-md-12 pb-2">
                                     <label class="labels">Телефонен номер</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Телефонен номер" value="<?php echo $userInfo['phone']?>">
+                                    <input type="text" class="form-control" id="phone" placeholder="Телефонен номер" value="<?php echo $userInfo['phone']?>" required>
                                 </div>
                                 <div class="col-md-12 pb-2">
                                     <label class="labels">Имейл</label>
-                                    <input type="text" class="form-control" id="email" placeholder="Имейл" value="<?php echo $userInfo['email']?>">
+                                    <input type="email" class="form-control" id="email" placeholder="Имейл" value="<?php echo $userInfo['email']?>" required>
                                 </div>
                                 <div class="mb-3 text-center">
                                     <button class="btn btn-primary profile-button" type="submit" id="submitDetails">Запази детайли</button>
@@ -56,8 +56,8 @@
                         <form id="userPassword">
                                 <div class="col-md-12 pb-0">
                                     <label class="labels">Парола</label>
-                                    <input type="password" class="form-control mb-2" id="passwordOld" placeholder="Стара парола">
-                                    <input type="password" class="form-control mb-2" id="passwordNew" placeholder="Нова парола">
+                                    <input type="password" class="form-control mb-2" id="passwordOld" placeholder="Стара парола" required>
+                                    <input type="password" class="form-control mb-2" id="passwordNew" placeholder="Нова парола" required>
                                 </div>
                                 <div class="mb-3 text-center">
                                     <button class="btn btn-primary profile-button" type="submit" id="submitPassword">Запази нова парола</button>
@@ -67,7 +67,7 @@
                         <form id="userPicture">
                                 <div class="col-md-12 pb-2">
                                     <label class="labels">Профилна снимка</label>
-                                    <input type="file" class="form-control" name="picture">
+                                    <input type="file" class="form-control" name="picture" required>
                                 </div>
                                 <div class="text-center">
                                     <button class="btn btn-primary profile-button" type="submit" id="submitPicture">Запази снимка</button>
