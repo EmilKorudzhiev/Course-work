@@ -1,6 +1,8 @@
 <?php 
-if(isset($_SESSION["USER"]) && isset($_SESSION["CART"])){
+if(isset($_SESSION["USER"])){
   debug_to_console($_SESSION["USER"]);
+  } 
+if(isset($_SESSION["CART"])){
   debug_to_console($_SESSION["CART"]);
 } 
 ?>
@@ -19,8 +21,10 @@ if(isset($_SESSION["USER"]) && isset($_SESSION["CART"])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    
   </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-1 border-bottom" id="header">
@@ -54,8 +58,8 @@ if(isset($_SESSION["USER"]) && isset($_SESSION["CART"])){
             <a class="nav-link<?php if ( $active == 'cart' ) echo " active" ?>" href="/Course-work/controllers/cart.php"><span class="bi bi-cart h5"></span> Cart</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
-              <img src="/Course-work/images/profile/<?php if(isset($_SESSION["USER"][6])){echo isset($_SESSION["USER"][6]);} else{ echo 'image-50x50.jpg';} ?>" alt="Profile" class="rounded-circle" width="30" height="30">
+            <a class="nav-link" href="<?php if(isset($_SESSION["USER"])){echo '/Course-work/controllers/user_profile.php';} else{ echo '/Course-work/controllers/login.php';} ?>">
+              <img src="/Course-work/images/profile/<?php if(isset($_SESSION["USER"][4])){echo $_SESSION["USER"][4];} else{ echo 'default.jpg';} ?>" alt="Profile" class="rounded-circle" width="30" height="30">
             </a>
           </li>
         </ul>

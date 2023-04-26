@@ -8,7 +8,8 @@ $email = $_POST["email"];
 $password = hash("sha256",$_POST["password"]);
 
 $sqlInsertNewUser = '
-INSERT INTO users (first_name, last_name, phone, email, password) VALUES (?, ?, ?, ?, ?);
+INSERT INTO users (first_name, last_name, phone, email, password) 
+VALUES (?, ?, ?, ?, ?);
 ';
 
 $sqlCheckEmail='

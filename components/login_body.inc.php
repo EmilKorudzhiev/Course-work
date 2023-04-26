@@ -35,13 +35,11 @@ if(isset($_SESSION["USER"])){
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
   
   $("#loginForm").on("submit", function(e) {
-    e.preventDefault();
-    var email = $("#email").val();1
+    //e.preventDefault();
+    var email = $("#email").val();
     var password = $("#password").val();
 
     $.ajax({

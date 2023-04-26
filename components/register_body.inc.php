@@ -47,9 +47,6 @@ if(isset($_SESSION["USER"])){
     </div>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
   
   $("#registertrationForm").on("submit", function(e) {
@@ -57,7 +54,7 @@ if(isset($_SESSION["USER"])){
     var name = $("#name").val();
     var surname = $("#surname").val();
     var phone = $("#phone").val();
-    var email = $("#email").val();1
+    var email = $("#email").val();
     var password = $("#password").val();
 
     $.ajax({
