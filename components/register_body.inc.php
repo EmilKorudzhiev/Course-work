@@ -15,25 +15,26 @@ if(isset($_SESSION["USER"])){
                     <form id="registertrationForm">
                         <div class="px-3 pb-3">
                             <label for="name">Име<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" id="name" minlength="4" minlength="40" required>
                         </div>
                         <div class="px-3 pb-3">
                             <label for="surname">Фамилия<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="surname">
+                            <input type="text" class="form-control" id="surname" minlength="4" minlength="40" required>
                         </div>
                         <div class="px-3 pb-3">
                             <label for="phone">Телефонен номер<span class="text-danger">*</span></label>
-                            <input type="tel" class="form-control" id="phone">
+                            <input type="tel" class="form-control" id="phone" minlength="8" minlength="8" required>
                         </div>
                         <div class="px-3 pb-3">
                             <label for="email">Имейл<span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="email">
+                            <input type="email" class="form-control" id="email" required>
                         </div>
                         <div class="px-3 pb-3">
                             <label for="password">Парола<span class="text-danger">*</span></label>
-                            <input type="password" class="form-control" id="password">
+                            <input type="password" class="form-control" id="password" minlength="8" minlength="40" required>
                         </div>
                         <div class="px-3">
+                            <h5 class="text-center text-danger" id="emailError"></h5>
                             <button type="submit" class="btn btn-primary" id="registerButton">Регистрирай се</button>
                         </div>
                     </form>
@@ -67,8 +68,13 @@ if(isset($_SESSION["USER"])){
         email: email,
         password: password
       },
+      dataType: "json",
       success: function(response) {
-        alert(response);
+        if(response.status == "Email not used"){
+          window.location.href = '/Course-work/controllers/home.php';
+        }else{
+          document.getElementById("emailError").innerHTML = "Email is already registered please enter a diffrent email!";
+        }
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);

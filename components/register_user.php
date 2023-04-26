@@ -24,11 +24,14 @@ $emailCheck -> execute([$email]);
 $emailCheckResult = $emailCheck -> fetch();
 
 if($emailCheckResult){
-    echo"Email already used. Please use another.";
+    $status = "Email used";
     
 }else{
     $result -> execute([$name, $surname, $phone, $email, $password]);
-    echo "Registered successfully";
+    $status = "Email not used";
     $_SESSION["USER"] = [$_POST["name"], $_POST["surname"], $_POST["phone"], $_POST["email"], null];
 }
+
+$response = array("status" => $status);
+echo json_encode($response);
 ?> 

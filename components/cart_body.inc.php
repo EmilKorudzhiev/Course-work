@@ -1,5 +1,11 @@
+<?php 
+if(!isset($_SESSION["USER"])){
+    header("Location: /Course-work/controllers/login.php");
+}
+?>
+
 <div class="container pt-5 my-5">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         <div class="col-9 col-md-8">
             <div class="card">
 
@@ -18,9 +24,9 @@
         </div>
 
         <div class="col-3 col-md-2">
-            <button>da</button>
-            <button>da</button>
-            <button>da</button>
+            <div>
+                
+            </div>
 
         </div>
 

@@ -14,10 +14,13 @@
 <div class="container mt-5">
     <div class="row d-flex justify-content-center">
         <div class="col-md-12 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 pb-5">
+            <div class="d-flex flex-column align-items-center text-center p-3">
                 <img class="rounded-circle mt-5" width="150px" src="/Course-work/images/profile/<?php if($userInfo['picture']){echo $userInfo['picture'];} else{ echo 'default.jpg';} ?>">
                 <h3 class="font-weight-bold"><?php echo $userInfo['first_name'].' '.$userInfo['last_name']?></h3>
                 <h5 class="text-black-50"><?php echo $userInfo['email']?></h5>
+                <br>
+                <button class="btn btn-primary profile-button" onclick="location.href='/Course-work/components/logout_user.php'" type="submit">Излез от профила</button>
+                  
             </div>
         </div>
             

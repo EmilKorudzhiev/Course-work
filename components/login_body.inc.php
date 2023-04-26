@@ -15,19 +15,20 @@ if(isset($_SESSION["USER"])){
             <form id="loginForm">
                 <div class="px-3 pb-3">
                     <label for="email">Имейл<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="email">
+                    <input type="email" class="form-control" id="email" required>
                 </div>
                 <div class="px-3 pb-3">
                     <label for="password">Парола<span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password" minlength="8" minlength="40" required>
                 </div>
                 <div class="px-3">
+                    <h5 class="text-center text-danger" id="wrongCredentials"></h5>
                     <button type="submit" class="btn btn-primary">Вход</button>
                 </div>
             </form>
             <hr>
                 <div class="px-3 pt-2">
-                    <p>Нямате профил?<a href="register.php" class="btn btn-primary btn-sm">Регистрирайте се</a></p>
+                    <p>Нямате профил? <a href="register.php" class="btn btn-primary btn-sm">Регистрирайте се</a></p>
                 </div>
             </div>
         </div>
@@ -38,7 +39,7 @@ if(isset($_SESSION["USER"])){
 <script>
   
   $("#loginForm").on("submit", function(e) {
-    //e.preventDefault();
+    e.preventDefault();
     var email = $("#email").val();
     var password = $("#password").val();
 
@@ -49,8 +50,13 @@ if(isset($_SESSION["USER"])){
         email: email,
         password: password
       },
+      dataType: "json",
       success: function(response) {
-        alert(response);
+        if(response.status == "Correct info"){
+          window.location.href = '/Course-work/controllers/home.php';
+        }else{
+          document.getElementById("wrongCredentials").innerHTML = "Password or email incorrect!";
+        }
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);

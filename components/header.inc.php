@@ -35,7 +35,7 @@ if(isset($_SESSION["CART"])){
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-lg-0">
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'home' ) echo " active" ?>" aria-current="page" href="/Course-work/controllers/home.php">Home</a>
           </li>
@@ -53,7 +53,7 @@ if(isset($_SESSION["CART"])){
           </li>
         </ul>
 
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'cart' ) echo " active" ?>" href="/Course-work/controllers/cart.php"><span class="bi bi-cart h5"></span> Cart</a>
           </li>
