@@ -29,7 +29,7 @@ if($emailCheckResult){
 }else{
     $result -> execute([$name, $surname, $phone, $email, $password]);
     $status = "Email not used";
-    $_SESSION["USER"] = [$_POST["name"], $_POST["surname"], $_POST["phone"], $_POST["email"], null];
+    $_SESSION["USER"] = [$_POST["name"], $_POST["surname"], $_POST["phone"], $_POST["email"], null, "user"];
 }
 
 $response = array("status" => $status);

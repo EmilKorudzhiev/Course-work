@@ -1,5 +1,9 @@
 
 <?php 
+    if(!isset($_SESSION["USER"])){
+      header("Location: /Course-work/controllers/home.php");
+    }
+
     $sqlGetUser='
     SELECT * FROM users
     WHERE email = (?);

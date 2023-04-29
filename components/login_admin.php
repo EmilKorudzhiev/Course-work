@@ -5,7 +5,7 @@ $email = $_POST["email"];
 $password = hash("sha256",$_POST["password"]);
 
 $sqlSelectUser = '
-SELECT * FROM users WHERE email = (?) AND password = (?);
+SELECT * FROM users WHERE email = (?) AND password = (?) AND role = "admin";
 ';
 
 $result = $connection -> prepare($sqlSelectUser);
