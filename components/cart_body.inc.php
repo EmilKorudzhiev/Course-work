@@ -1,7 +1,7 @@
 <?php 
-if(!isset($_SESSION["USER"])){
+/*if(!isset($_SESSION["USER"])){
     header("Location: /Course-work/controllers/login.php");
-}
+}*/
 ?>
 
 <div class="container pt-5 my-5">

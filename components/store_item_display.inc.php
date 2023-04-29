@@ -25,6 +25,10 @@ while($row = $result->fetch()){
                     <p class="card-text">'
                         . $row['price'] . " лв." .
                     '</p>
+                    <button class="btn btn-outline-dark" type="button">
+                        <span class="bi-cart-fill me-1"></span>
+                        Добави в количка
+                    </button>
                 </div>
             </div>
         </a>

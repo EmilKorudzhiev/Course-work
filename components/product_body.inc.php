@@ -63,11 +63,15 @@ $sqlSelectRelatedItems = '
                     echo implode(', ',$productData['tags']);
                     ?>
                 </h6>
-                <div class="py-3">
-                    <button class="btn btn-outline-dark" type="button">
-                        <span class="bi-cart-fill me-1"></span>
-                        Добави в количка
-                    </button>
+                <div class="row py-3">
+                    <div class="col-8 col-sm-6 col-md-9 col-lg-7 col-xl-5 mb-3">
+                        <form id="addToCart">
+                            <div class="input-group">
+                                <input type="number" class="form-control" value="1" min="1" max="10" id="quantity" aria-describedby="basic-addon2">
+                                <button class="btn btn-outline-dark" type="submit"><span class="bi-cart-fill me-1"></span>Добави в количка</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <p>
                     <?php echo $productData['description'] ?>
@@ -150,3 +154,27 @@ $sqlSelectRelatedItems = '
         </div>
     </div>
 </div>
+
+<script>
+    $("#addToCart").on("submit", function(e) {
+    e.preventDefault();
+    var quantity = $("#quantity").val();
+    var quantity = $("#quantity").val();
+    
+
+    $.ajax({
+      url: "/Course-work/components/update_cart.php",
+      type: "post",
+      data: {
+        id:<?php echo $row["id"]?>,
+        quantity: quantity
+      },
+      success: function(response) {
+        alert(response);
+      },
+      error: function(xhr, status, error) {
+        console.log(xhr.responseText);
+      }
+    });
+    });
+</script>
