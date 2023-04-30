@@ -36,7 +36,7 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
 
 <h1 class="text-danger text-center my-3">ADMIN PANEL</h1>  
 
-//make it work and redact elements
+//make it work for redacting elements
 
 <div class="container mb-5">
   <div class="row justify-content-center">
@@ -99,7 +99,7 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
 
 <script>
   $("#addProductForm").on("submit", function(e) {
-    e.preventDefault();
+    //e.preventDefault();
     var formData = new FormData(this);
 
     $.ajax({
@@ -118,7 +118,7 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
   });
 
   $("#addTagForm").on("submit", function(e) {
-    e.preventDefault();
+    //e.preventDefault();
     var tagName = $("#tagName").val();
 
     $.ajax({

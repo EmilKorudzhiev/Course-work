@@ -6,7 +6,6 @@ $description = $_POST["productDescription"];
 $price = $_POST["productPrice"];
 $images = $_FILES["productImage"];
 $tags = $_POST["tags"];
-echo print_r($tags);
 
 $sqlInsertProduct ='
 INSERT INTO products (name, description, price)
