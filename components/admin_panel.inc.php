@@ -13,9 +13,6 @@ SELECT * from tags;
 ';
 $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
 
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +32,8 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
 
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <h1 class="text-danger text-center my-3">ADMIN PANEL</h1>  
 
 //make it work and redact elements
@@ -43,22 +42,22 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
   <div class="row justify-content-center">
     <div class="col-10 col-sm-8 col-lg-7 border border-black mb-3">
       <h2>Добавяне на продукт</h2>
-      <form action="">
+      <form id="addProductForm">
         <div class="mb-3">
           <label for="productName" class="form-label">Име</label>
-          <input type="text" class="form-control" id="productName" required>
+          <input type="text" class="form-control" id="productName" name="productName" required>
         </div>
         <div class="mb-3">
           <label for="productDescription" class="form-label">Описание</label>
-          <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+          <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
         </div>
         <div class="mb-3">
           <label for="productPrice" class="form-label">Цена</label>
-          <input type="number" class="form-control" id="productPrice" min="0.00" max="10000.00" step="0.01" required>
+          <input type="number" class="form-control" id="productPrice" name="productPrice" min="0.00" max="10000.00" step="0.01" required>
         </div>
         <div class="mb-3">
           <label for="productImage" class="form-label">Снимки</label>
-          <input type="file" class="form-control" id="productImage" required multiple>
+          <input type="file" class="form-control" id="productImage" name="productImage[]" required multiple>
         </div>
         <div class="mb-3">
           <label for="productTags">Тагове</label>
@@ -67,7 +66,7 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
               foreach ($resultTags as $tag) {
                 echo '
                 <div class="form-check mb-3">
-                  <input type="checkbox" id="tag'.$tag["id"].'">
+                  <input type="checkbox" id="tag'.$tag["id"].'" name="tags[]" value="'.$tag["id"].'">
                   <label for="tag'.$tag["id"].'" class="form-label">'.$tag["tag"].'</label>
                 </div>
                 ';
@@ -75,23 +74,73 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
               ?>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary mb-3">Добави</button>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary mb-3">Добави</button>
+        </div>
       </form>
     </div>
 
     <div class="col-10 col-sm-8 col-lg-7 border border-black mb-3">
       <h2>Добавяне на таг</h2>
-      <form action="">
+      <form id="addTagForm">
         <div class="mb-3">
           <label for="tagName" class="form-label">Име на таг</label>
-          <input type="text" class="form-control" id="tagName" required>
+          <input type="text" class="form-control" id="tagName" name="tagName" required>
         </div>
-        <button type="submit" class="btn btn-primary mb-3">Добави</button>
+        <div class="mb-3">
+          <h5 class="text-center text-danger" id="tagError"></h5>
+          <button type="submit" class="btn btn-primary mb-3">Добави</button>
+        </div>
       </form>
     </div>
   
   </div>
 </div>
+
+<script>
+  $("#addProductForm").on("submit", function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+      url: "/Course-work/components/add_product.php",
+      type: "post",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(response) {
+        alert(response);
+      },
+      error: function(xhr, status, error) {
+        console.log(xhr.responseText);
+      }
+    });
+  });
+
+  $("#addTagForm").on("submit", function(e) {
+    e.preventDefault();
+    var tagName = $("#tagName").val();
+
+    $.ajax({
+      url: "/Course-work/components/add_tag.php",
+      type: "post",
+      data: {
+        tagName: tagName
+      },
+      dataType: "json",
+      success: function(response) {
+        if(response.status == "tagDoesntExist"){
+          document.getElementById("tagError").innerHTML = "Добавянето е успешно!";
+        }else{
+          document.getElementById("tagError").innerHTML = "Този таг вече съществува!";
+        }
+      },
+      error: function(xhr, status, error) {
+        console.log(xhr.responseText);
+      }
+    });
+  });
+</script>
 
 </body>
 </html>

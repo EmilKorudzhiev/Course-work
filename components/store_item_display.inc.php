@@ -1,6 +1,6 @@
 <?php 
 $sql = "
-SELECT products.id, products.name, products.description, products.price, products.quantity, SUBSTRING_INDEX(GROUP_CONCAT(DISTINCT tags.tag SEPARATOR ', '), ', ', 2) as tags, images.path
+SELECT products.id, products.name, products.description, products.price, SUBSTRING_INDEX(GROUP_CONCAT(DISTINCT tags.tag SEPARATOR ', '), ', ', 2) as tags, images.path
 FROM products
 JOIN products_has_tags ON products.id = products_has_tags.products_id
 JOIN tags ON products_has_tags.tags_id = tags.id
