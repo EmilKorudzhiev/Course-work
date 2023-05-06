@@ -118,6 +118,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `course_work`.`orders` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
+  `address` VARCHAR(255) NOT NULL,
+  `ordered` DATE NOT NULL,
   PRIMARY KEY (`id`, `user_id`),
   INDEX `fk_orders_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_orders_user1`
@@ -134,7 +136,6 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `course_work`.`orders_has_products` (
   `orders_id` INT NOT NULL,
   `products_id` INT NOT NULL,
-  `address` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`orders_id`, `products_id`),
   INDEX `fk_orders_has_products_products1_idx` (`products_id` ASC) VISIBLE,
   INDEX `fk_orders_has_products_orders1_idx` (`orders_id` ASC) VISIBLE,

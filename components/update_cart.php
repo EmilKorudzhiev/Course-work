@@ -4,8 +4,12 @@ require('database_connection.inc.php');
 $id = $_POST["id"];
 $quantity = $_POST["quantity"];
 
-$status = "Correct info";
-$_SESSION["CART"][$id] += $quantity;
 
+if(isset($_SESSION["CART"][$id])){
+    $_SESSION["CART"][$id] += $quantity;
+}else{
+    $_SESSION["CART"][$id] = $quantity;
+}
+echo print_r($_SESSION);
 echo "Added to cart";
 ?>
