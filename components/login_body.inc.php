@@ -36,7 +36,7 @@ if(isset($_SESSION["USER"])){
     </div>
 </div>
 
-<script>
+<script> 
   
   $("#loginForm").on("submit", function(e) {
     e.preventDefault();
