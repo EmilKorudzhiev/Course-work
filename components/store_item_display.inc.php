@@ -5,6 +5,7 @@ FROM products
 JOIN products_has_tags ON products.id = products_has_tags.products_id
 JOIN tags ON products_has_tags.tags_id = tags.id
 JOIN images ON  products.id = images.products_id
+GROUP BY products.id
 ;
 ";
 $result = $connection->query($sql);

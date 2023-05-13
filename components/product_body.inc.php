@@ -29,7 +29,7 @@ $sqlSelectRelatedItems = '
 
 ?>
 
-<div class="p-5 pb-2">
+<div class="p-5 mt-3 pb-2">
     <div class="container px-2 py-3">
         <div class="row justify-content-center">
             <div class="col-md-6">

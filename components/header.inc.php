@@ -43,6 +43,9 @@ if(isset($_SESSION["CART"])){
             <a class="nav-link<?php if ( $active == 'store' ) echo " active" ?>" href="/Course-work/controllers/store.php">Store</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link<?php if ( $active == 'ai chat' ) echo " active" ?>" href="/Course-work/controllers/ai_chat.php">AI Chat</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'forum' ) echo " active" ?>" href="#">Forum</a>
           </li>
           <li class="nav-item">
@@ -51,6 +54,7 @@ if(isset($_SESSION["CART"])){
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'faq' ) echo " active" ?>" href="#">FAQ</a>
           </li>
+          
         </ul>
 
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
