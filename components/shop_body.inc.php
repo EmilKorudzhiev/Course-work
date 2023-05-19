@@ -1,7 +1,7 @@
 <div class="p-0 m-0">
     <div class="row flex-nowrap overflow-hidden">
         
-        <div class="collapse d-md-block col-12 col-md-2 p-0 pt-5 bg-dark text-dark" id="sidebar">
+        <div class="collapse d-md-block col-12 col-md-2 p-0 pt-5 bg-dark text-dark" id="sidebar" style="min-height: 100hv">
             
             <ul>
             <li class="mt-3">

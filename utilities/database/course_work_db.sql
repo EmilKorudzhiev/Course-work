@@ -18,67 +18,6 @@ CREATE SCHEMA IF NOT EXISTS `course_work` DEFAULT CHARACTER SET utf8mb4 COLLATE 
 USE `course_work` ;
 
 -- -----------------------------------------------------
--- Table `course_work`.`users`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `course_work`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `first_name` VARCHAR(45) NOT NULL,
-  `last_name` VARCHAR(45) NOT NULL,
-  `phone` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `password` CHAR(64) NOT NULL,
-  `picture` VARCHAR(45) NULL DEFAULT NULL,
-  `role` ENUM('admin', 'user') NOT NULL DEFAULT 'user',
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-AUTO_INCREMENT = 8
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `course_work`.`posts`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `course_work`.`posts` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `users_id` INT NOT NULL,
-  `title` TEXT NOT NULL,
-  `text` TEXT NOT NULL,
-  `date_of_post` DATE NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
-  INDEX `fk_posts_users1_idx` (`users_id` ASC) VISIBLE,
-  CONSTRAINT `fk_posts_users1`
-    FOREIGN KEY (`users_id`)
-    REFERENCES `course_work`.`users` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `course_work`.`comments`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `course_work`.`comments` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `users_id` INT NOT NULL,
-  `posts_id` INT NOT NULL,
-  `text` TEXT NOT NULL,
-  `date_of_post` DATE NOT NULL,
-  PRIMARY KEY (`id`, `users_id`, `posts_id`),
-  INDEX `fk_comments_posts1_idx` (`posts_id` ASC) VISIBLE,
-  INDEX `fk_comments_users1_idx` (`users_id` ASC) VISIBLE,
-  CONSTRAINT `fk_comments_posts1`
-    FOREIGN KEY (`posts_id`)
-    REFERENCES `course_work`.`posts` (`id`),
-  CONSTRAINT `fk_comments_users1`
-    FOREIGN KEY (`users_id`)
-    REFERENCES `course_work`.`users` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
 -- Table `course_work`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `course_work`.`products` (
@@ -86,10 +25,9 @@ CREATE TABLE IF NOT EXISTS `course_work`.`products` (
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NOT NULL,
   `price` DECIMAL(10,2) NOT NULL,
-  `quantity` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 2
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -107,7 +45,26 @@ CREATE TABLE IF NOT EXISTS `course_work`.`images` (
     FOREIGN KEY (`products_id`)
     REFERENCES `course_work`.`products` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 10
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `course_work`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `course_work`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NOT NULL,
+  `last_name` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` CHAR(64) NOT NULL,
+  `picture` VARCHAR(45) NULL DEFAULT NULL,
+  `role` ENUM('admin', 'user') NOT NULL DEFAULT 'user',
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -158,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `course_work`.`tags` (
   `tag` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 4
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -181,6 +138,24 @@ CREATE TABLE IF NOT EXISTS `course_work`.`products_has_tags` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `course_work`.`chat_history`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `course_work`.`chat_history` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `users_id` INT NOT NULL,
+  `human_message` TEXT NOT NULL,
+  `ai_message` TEXT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_chat_history_users1_idx` (`users_id` ASC) VISIBLE,
+  CONSTRAINT `fk_chat_history_users1`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `course_work`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

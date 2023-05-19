@@ -16,6 +16,8 @@ if(isset($_SESSION["CART"])){
     <title>Document</title>
 
     <link rel="stylesheet" href="/Course-work/utilities/styles/style.css">
+    <link rel="stylesheet" href="/Course-work/utilities/styles/stylesChat.css">
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -23,7 +25,7 @@ if(isset($_SESSION["CART"])){
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     
   </head>
-<body class="stickToBottom">
+<body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <header>
@@ -35,7 +37,7 @@ if(isset($_SESSION["CART"])){
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-lg-0">
+        <ul class="navbar-nav me-auto mb-lg-0 d-flex align-items-center">
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'home' ) echo " active" ?>" aria-current="page" href="/Course-work/controllers/home.php">Home</a>
           </li>
@@ -57,7 +59,7 @@ if(isset($_SESSION["CART"])){
           
         </ul>
 
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'cart' ) echo " active" ?>" href="/Course-work/controllers/cart.php"><span class="bi bi-cart h5"></span> Cart</a>
           </li>
