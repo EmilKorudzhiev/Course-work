@@ -25,8 +25,12 @@
         $chat_history = $_SESSION['context'] ?? [];
 
         foreach ($chat_history as $chat_message) {
-            $direction = $chat_message['role'] === "user" ? "prompt" : "response";
-            echo '<div class="AIchat-msg msg-'.$direction.'>'.htmlspecialchars( $chat_message['content'] ).'</div>';
+            if($chat_message['role'] == "system"){
+                echo "";
+            }else{
+                $direction = $chat_message['role'] === "user" ? "prompt" : "response";
+                echo '<div class="AIchat-msg msg-'.$direction.'">'.'<p>'.$chat_message['content'].'</p>'.'</div>';
+            }
         }
         ?>
     
@@ -57,8 +61,16 @@
       dataType: "json",
       success: function(response) {
         console.log(response);
-        alert(response); 
-        $("#chatBody").load(location.href + " #chatBody");
+
+        var prompt = response.prompt;
+        var answer = response.answer;
+
+        setTimeout(function() {
+        $('#chatBody').append(prompt);
+        $('#chatBody').append(answer);
+
+        $("#message").val("");
+        }, 5);
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);

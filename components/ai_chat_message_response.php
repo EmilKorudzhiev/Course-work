@@ -1,21 +1,21 @@
 <?php
 session_start();
-require("..\accessDetails\databaseDetails.php");
+require("../accessDetails/openaiKey.php");
 
-use Orhanerday\OpenAi\OpenAi;
+require_once ('../vendor/autoload.php');
+require_once("../vendor/orhanerday/open-ai/src/OpenAi.php");
+use orhanerday\OpenAi\OpenAi;
 
 $context = $_SESSION['context'] ?? [];
-$userMessage = $_POST["message"];
 
 $openai = new OpenAi(_API_KEY);
 $messages = [];
 
-if( ! empty( $settings['system_message'] ) ) {
-  $messages[] = [
-      "role" => "system",
-      "content" => $settings['system_message'],
-  ];
-}
+
+$messages[] = [
+    "role" => "system",
+    "content" => "You are an assistant in a fishing web site, you can only answer things that are related to fishing if they arent respond that you aren't allowed to answer any other promts",
+];
 
 foreach( $context as $msg ) {
   $messages[] = [
@@ -26,7 +26,7 @@ foreach( $context as $msg ) {
 
 $messages[] = [
   "role" => "user",
-  "content" => $_GET['message'],
+  "content" => $_POST['message'],
 ];
 
 $response_text = "";
@@ -60,8 +60,6 @@ $complete = json_decode( $openai->chat( [
       }
 
       $response_text .= $content;
-
-      echo "data: " . json_encode( ["content" => $content] ) . "\n\n";
       flush();
   }
 
@@ -77,6 +75,25 @@ $messages[] = [
 
 $_SESSION['context'] = $messages;
 
-echo "event: stop\n";
-echo "data: stopped\n\n";
+
+$lastPrompt = $messages[count($messages) - 2];
+$lastAnswer = $messages[count($messages) - 1];
+
+$response = [
+    "prompt" => 
+    '<div class="AIchat-msg msg-prompt">
+      <p>'
+        .$lastPrompt['content'].
+      '</p>
+    </div>',
+    "answer" => 
+    '<div class="AIchat-msg msg-response">
+      <p>'
+        .$lastAnswer["content"].
+      '</p>
+    </div>',
+    
+];
+
+echo json_encode($response);
 ?>
