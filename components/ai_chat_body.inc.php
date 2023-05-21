@@ -11,8 +11,22 @@
                 </svg>
             </a>
             
-            <h3 class="m-0">Съобщения</h3>
-            <button class="btn btn-outline-dark p-1">
+            <h3 class="m-0">
+                Съобщения 
+                <span
+                id="info"
+                class="bi bi-info-circle h4"
+
+                data-bs-toggle="popover"
+                data-bs-trigger="hover"
+                data-bs-placement="bottom"
+                data-bs-title="Какво е това?"
+                data-bs-content="
+                Това е чат с изкуствен интелект. Той може да отговори на много въпроси свързани с риболова. Може да върне грешна информация!"
+                ></span>
+            </h3>
+
+            <button class="btn btn-outline-dark p-1" onclick="location.href='/Course-work/components/ai_chat_clear_history.php'" >
                 <span class="d-none d-sm-block">Изтрии история</span>
                 <i class="bi bi-trash h-2 d-sm-none h4"></i>
             </button>
@@ -38,18 +52,26 @@
 
     <form id="sendMessage" class="w-100">
         <div class="input-group w-100">
-            <input class="form-control" type="text" id="message" placeholder="Въведете съобщение...">
+            <input class="form-control" type="text" id="message" placeholder="Въведете съобщение..." required>
             <div class="input-group-append">
-                <button type="submit" class="btn btn-outline-secondary">Изпрати</button>
+                <button id="submit" type="submit" class="btn btn-outline-secondary">Изпрати</button>
             </div>
         </div>
     </form>
 </div>
+
+
 <script>
-  
-  $("#sendMessage").on("submit", function(e) {
+
+var popover = new bootstrap.Popover(document.getElementById('info'));
+
+$("#sendMessage").on("submit", function(e) {
     e.preventDefault();
     
+    
+    var button = document.getElementById("submit");
+    button.disabled = true;
+
     var message = $("#message").val();
 
     $.ajax({
@@ -70,6 +92,7 @@
         $('#chatBody').append(answer);
 
         $("#message").val("");
+        button.disabled = false;
         }, 5);
       },
       error: function(xhr, status, error) {

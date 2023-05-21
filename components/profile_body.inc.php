@@ -23,7 +23,7 @@
                 <h3 class="font-weight-bold"><?php echo $userInfo['first_name'].' '.$userInfo['last_name']?></h3>
                 <h5 class="text-black-50"><?php echo $userInfo['email']?></h5>
                 <br>
-                <button class="btn btn-primary profile-button" onclick="location.href='/Course-work/components/logout_user.php'" type="submit">Излез от профила</button>
+                <button class="btn btn-primary profile-button" onclick="location.href='/Course-work/components/logout_user.php'">Излез от профила</button>
                   
             </div>
         </div>
