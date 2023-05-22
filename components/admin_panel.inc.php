@@ -99,7 +99,7 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
 
 <script>
   $("#addProductForm").on("submit", function(e) {
-    //e.preventDefault();
+    e.preventDefault();
     var formData = new FormData(this);
 
     $.ajax({
@@ -109,7 +109,7 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
       processData: false,
       contentType: false,
       success: function(response) {
-        alert(response);
+        alert("Item added");
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);
@@ -118,7 +118,7 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
   });
 
   $("#addTagForm").on("submit", function(e) {
-    //e.preventDefault();
+    e.preventDefault();
     var tagName = $("#tagName").val();
 
     $.ajax({

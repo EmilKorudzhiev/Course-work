@@ -10,29 +10,39 @@ GROUP BY products.id
 ";
 $result = $connection->query($sql);
 
+
+
 while($row = $result->fetch()){
     echo 
-    '<div class="py-2 pb-2">
-        <a href=".\product.php?id='.$row["id"].'">
-            <div class="card">
-            <img src="..\images\shop items\\'.$row["path"].'" class="card-img-top border-bottom" alt="image"/>
-                <div class="card-body">
-                    <p class="card-title">'
-                        . $row['name'] .
-                    '</p>
-                    <p class="text-secondary">'
-                        .$row['tags'].
-                    '</p>
-                    <p class="card-text">'
+    '<div class="p-2">
+        <div class="card h-100">
+            <a href=".\product.php?id='.$row["id"].'">
+                <img src="..\images\shop items\\'.$row["path"].'" id="productImg" class="card-img-top border-bottom" alt="image"/>
+            </a>  
+            <div class="card-body p-2">
+                <div>
+                    <a href=".\product.php?id='.$row["id"].'">
+                        <p class="card-title text-dark">'
+                            . $row['name'] .
+                        '</p>
+                        <p class="text-secondary">'
+                            .$row['tags'].
+                        '</p>
+                        <p class="card-text text-dark pe-2">'
                         . $row['price'] . " лв." .
-                    '</p>
-                    <button class="btn btn-outline-dark" type="button">
+                        '</p>
+                    </a>
+                    
+                </div>
+                <div class="d-flex justify-content-center">
+                    
+                    <button class="btn btn-outline-dark p-2 align-self-center" type="button">
                         <span class="bi-cart-fill me-1"></span>
-                        Добави в количка
+                        Купи
                     </button>
                 </div>
             </div>
-        </a>
+        </div>
     </div>';
 }
 
