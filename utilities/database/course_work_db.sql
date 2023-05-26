@@ -27,7 +27,6 @@ CREATE TABLE IF NOT EXISTS `course_work`.`products` (
   `price` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -39,13 +38,12 @@ CREATE TABLE IF NOT EXISTS `course_work`.`images` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `products_id` INT NOT NULL,
   `path` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`, `products_id`),
+  PRIMARY KEY (`id`),
   INDEX `fk_images_products1_idx` (`products_id` ASC) VISIBLE,
-  CONSTRAINT `fk_images_products1`
+  CONSTRAINT `products_id`
     FOREIGN KEY (`products_id`)
     REFERENCES `course_work`.`products` (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 10
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -62,9 +60,9 @@ CREATE TABLE IF NOT EXISTS `course_work`.`users` (
   `password` CHAR(64) NOT NULL,
   `picture` VARCHAR(45) NULL DEFAULT NULL,
   `role` ENUM('admin', 'user') NOT NULL DEFAULT 'user',
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -75,8 +73,8 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `course_work`.`orders` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  `address` VARCHAR(255) NOT NULL,
-  `ordered` DATE NOT NULL,
+  `addres` VARCHAR(45) NOT NULL,
+  `date_ordered` DATETIME NOT NULL,
   PRIMARY KEY (`id`, `user_id`),
   INDEX `fk_orders_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_orders_user1`
@@ -93,6 +91,7 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `course_work`.`orders_has_products` (
   `orders_id` INT NOT NULL,
   `products_id` INT NOT NULL,
+  `number_of_product_ordered` INT NOT NULL,
   PRIMARY KEY (`orders_id`, `products_id`),
   INDEX `fk_orders_has_products_products1_idx` (`products_id` ASC) VISIBLE,
   INDEX `fk_orders_has_products_orders1_idx` (`orders_id` ASC) VISIBLE,
@@ -113,9 +112,9 @@ COLLATE = utf8mb4_0900_ai_ci;
 CREATE TABLE IF NOT EXISTS `course_work`.`tags` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `tag` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `tag_UNIQUE` (`tag` ASC) VISIBLE)
 ENGINE = InnoDB
-AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -138,24 +137,6 @@ CREATE TABLE IF NOT EXISTS `course_work`.`products_has_tags` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `course_work`.`chat_history`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `course_work`.`chat_history` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `users_id` INT NOT NULL,
-  `human_message` TEXT NOT NULL,
-  `ai_message` TEXT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_chat_history_users1_idx` (`users_id` ASC) VISIBLE,
-  CONSTRAINT `fk_chat_history_users1`
-    FOREIGN KEY (`users_id`)
-    REFERENCES `course_work`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

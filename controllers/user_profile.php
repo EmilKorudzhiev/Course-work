@@ -1,5 +1,5 @@
 <?php
-$active= "store";
+$active= "";
 
 require('../components/database_connection.inc.php');
 

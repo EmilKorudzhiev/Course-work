@@ -64,7 +64,7 @@ if(isset($_SESSION["CART"])){
           </li>
           <li class="nav-item align-self-center">
             <a class="nav-link p-0" href="<?php if(isset($_SESSION["USER"])){echo '/Course-work/controllers/user_profile.php';} else{ echo '/Course-work/controllers/login.php';} ?>">
-              <img src="/Course-work/images/profile/<?php if(isset($_SESSION["USER"][4])){echo $_SESSION["USER"][4];} else{ echo 'default.jpg';} ?>" alt="Profile" class="rounded-circle" width="30" height="30">
+              <img src="/Course-work/images/<?php if(isset($_SESSION["USER"][4])){echo 'profile/'.$_SESSION["USER"][4];} else{ echo 'site assets/defaultProfile.jpg';} ?>" alt="Profile" class="rounded-circle" width="30" height="30" style="object-fit: cover;">
             </a>
           </li>
         </ul>
