@@ -50,19 +50,19 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
                       <div class="diffrence"></div>
                   </div>
                   <div class="range-input">
-                      <input type="range" name="range[]" class="range-min" min="0" max="<?php echo $maxPrice['max_price']; ?>" value="0" step="1">
-                      <input type="range" name="range[]" class="range-max" min="0" max="<?php echo $maxPrice['max_price']; ?>" value="<?php echo $maxPrice['max_price']; ?>" step="1">
+                      <input type="range" name="range[]" class="range-min" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="0" step="1">
+                      <input type="range" name="range[]" class="range-max" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="<?php echo $maxPrice['max_price']; ?>" step="1">
                   </div>
 
                   <div class="price-input row mt-3">
                       <div class="col-6 col-md-12 p-0 d-flex justify-content-center">
                         <span>Мин</span>
-                        <input type="number" class="input-min" min="0" max="<?php echo $maxPrice['max_price']; ?>" value="0">
+                        <input type="number" class="input-min" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="0">
                       </div>
                     
                       <div class="col-6 col-md-12 p-0 d-flex justify-content-center">
                         <span>Макс</span>
-                        <input type="number" class="input-max" min="0" max="<?php echo $maxPrice['max_price']; ?>" value="<?php echo ceil($maxPrice['max_price']); ?>">
+                        <input type="number" class="input-max" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="<?php echo ceil($maxPrice['max_price']); ?>">
                       </div>
                   </div>
               </div>

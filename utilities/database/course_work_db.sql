@@ -22,7 +22,7 @@ USE `course_work` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `course_work`.`products` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name` VARCHAR(255) NOT NULL,
   `description` TEXT NOT NULL,
   `price` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`id`))

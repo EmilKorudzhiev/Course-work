@@ -49,7 +49,7 @@ if($tags == null){
 
 
 ob_start();
-if($result -> fetch() == null) {
+if($result -> rowCount() == 0) {
     echo 
     '<div class="p-5">
         <h1 class="text-center">Няма намерени артикули с тези характеристики.</h1>
