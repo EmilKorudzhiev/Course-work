@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 # Replace 'website_url' with the actual URL of the website you want to scrape
 website_url = ''
-tag = ""  ## tag id in DB!!!
+tag = ''  # tag id in DB!!!
 
 image_directory = 'images/shop items'
 os.makedirs(image_directory, exist_ok=True)

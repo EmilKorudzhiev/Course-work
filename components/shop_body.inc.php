@@ -22,7 +22,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
 
           <form id="filters">
 
-            <h3 class="text-center my-2">Филтри</h3>
+            <h3 class="text-center my-2 px-1">Филтри</h3>
             <div class="d-flex justify-content-center justify-content-md-start justify-content-lg-center px-2">
                 <div class="mt-0">
                 
@@ -43,7 +43,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
 
             <hr>
 
-            <h3 class="text-center my-2">Цена</h3>
+            <h3 class="text-center my-2 px-1">Цена</h3>
             <div class="row d-flex justify-content-center mt-3 px-2">
               <div class="price-slider col-7 col-sm-5 col-md-12 col-lg-10 col-xl-8">
                   <div class="slider">
@@ -70,6 +70,19 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
 
             <hr>
 
+            <h5 class="text-center my-2 px-1">Елементи на страница</h5>
+            <div class="d-flex justify-content-center">
+                <select class="form-select" name="itemsPerPage" style="width: 75px;">
+                  <option value="12" selected>12</option>
+                  <option value="24">24</option>
+                  <option value="36">36</option>
+                  <option value="48">48</option>
+                  <option value="96">96</option>
+                </select>
+            </div>
+
+            <hr>
+
             <div class="d-flex justify-content-center">
               <button type="submit" class="btn btn-secondary d-none d-md-block">
                     Търси
@@ -86,7 +99,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
         </div>
 
 
-        <div class="col collapse d-block p-0 w-100 min-vh-100">
+        <div class="col collapse d-block p-0 w-100">
 
             <div class="d-md-none col-auto text-white d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" data-bs-toggle="collapse" 
@@ -104,29 +117,83 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
     </div>
 </div>
 
-
 <script>
-  $(document).ready(function() {
-      $("#filters").on("submit", function(e) {
-      e.preventDefault();
-      var formData = new FormData(this);
+
+$(document).ready(function() {
+   
+  var formData;
+
+  $("#filters").on("submit", function(e) {
+    e.preventDefault();
+    formData = new FormData(this);
+    formData.append('page', '1');
+
+    $.ajax({
+      url: '/Course-work/components/store_item_display.php',
+      type: 'POST',
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(response) {
+        window.scrollTo(0,0);
+        $("#items").html(response);
+      },
+      error: function(jqXHR, textStatus, errorMessage) {
+        console.log(errorMessage);
+      }
+    });
+  });
+
+  $("#filters").submit();
+
+  const container = document.querySelector('#items');
+
+  container.addEventListener('click', function (e) {
+    if (e.target.classList.contains('paginationButton')) {
+      var value = e.target.value;
+      formData.append('page', value);
+
       $.ajax({
         url: '/Course-work/components/store_item_display.php',
-        type: 'post',
+        type: 'POST',
         data: formData,
         processData: false,
         contentType: false,
         success: function(response) {
+          window.scrollTo(0,0);
           $("#items").html(response);
         },
         error: function(jqXHR, textStatus, errorMessage) {
           console.log(errorMessage);
         }
       });
+    }
+
+    if(e.target.classList.contains('addToCartButton')){
+      const quantity = 1;
+      var productId = e.target.value;
+      $.ajax({
+      url: "/Course-work/components/update_cart.php",
+      type: "post",
+      data: {
+        id: productId,
+        quantity: quantity
+      },
+      success: function(response) {
+        alert(response);
+      },
+      error: function(xhr, status, error) {
+        console.log(xhr.responseText);
+      }
     });
-    $("#filters").submit();
+    }
   });
+  
+});
+
 </script>
+
+
 
 <script>
     const rangeInput = document.querySelectorAll(".range-input input"),
