@@ -1,147 +1,91 @@
 
-<div class="jumbotron w-100 pt-5 m-0 mt-5 mb-5" id="mainPicTop">
-  <div class="container">
-    <div class="pb-5">
-
-      <h1 class="text-white pt-5 ">
-        Best Fishing Site In Bulgaria!
-      </h1>
-
-      <h2 class="text-white ps-5">
-        Wide Selection Of Fishing Gear AND a Forum for discussions!
-      </h2>
-
-      <div class="p-5">
-        <button type="button" class="btn btn-light"><a href="/Course-work/controllers/register.php">REGISTER NOW</a></button>
-        <button type="button" class="btn btn-light"><a href="/Course-work/controllers/login.php">LOG IN NOW</a></button>
+<main>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../images/toppictures/pic1-3.jpg" class="img-fluid full-width" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        
       </div>
-
+    </div>
+    <div class="carousel-item">
+      <img src="../images/toppictures/pic2-3.jpg" class="img-fluid" alt="Second slide">
+      <div class="carousel-caption d-none d-md-block"></div>
+      
+    </div>
+    <div class="carousel-item">
+      <img src="../images/toppictures/pic3-2.jpg" class="img-fluid" alt="Third slide">
+      <div class="carousel-caption d-none d-md-block"></div>
     </div>
   </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
-
-<div class="container" id="mainInfo">
-
-  <div class="w-100 row m-0 mb-5">
-
-    <div class="col-md-4 pb-3">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Introduction to fishing</h5>
-            <p class="card-text">Quick start to fishing.</p>
-          </div>
+<style>
+  #carouselExampleIndicators {
+    margin-top: 60px;
+  }
+</style>
+<div class="p-5">
+          <button type="button" class="btn btn-light"><a href="/Course-work/controllers/register.php">REGISTER NOW</a></button>
+          <button type="button" class="btn btn-light"><a href="/Course-work/controllers/login.php">LOG IN NOW</a></button>
         </div>
-      </a>
-    </div>
 
-    <div class="col-md-4 pb-3">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Licences and laws</h5>
-            <p class="card-text">Don't want to get a fine? Read this.</p>
-          </div>
-        </div>
-      </a>
-    </div>
 
-    <div class="col-md-4 pb-3">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Fishing spots</h5>
-            <p class="card-text">Find where and what to fish.</p>
-          </div>
-        </div>
-      </a>
-    </div>
+<style>h1 {
+  padding: 20px;
+    color: blue;
+    font-size: 24px;
+  }
 
-  </div>
+  h2 {
+    padding: 20px;
+    color: green;
+    font-size: 18px;
+  }
 
-<!-- forum post -->
-  <div class="w-100 row m-0 mb-5">
-    <h1>Top forum posts</h1>
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Introduction to fishing</h5>
-            <p class="card-text">Quick start to fishing.</p>
-          </div>
-        </div>
-      </a>
-    </div>
+  p {
+    padding: 10px;
+    color: black;
+    font-size: 14px;
+  }
 
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Licences and laws</h5>
-            <p class="card-text">Don't want to get a fine? Read this.</p>
-          </div>
-        </div>
-      </a>
-    </div>
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }</style>
+<section id="content"> <h1>Присъединете се за едно незабравимо риболовно приключение в България!</h1>
+  
+  <p><span class="highlight">Bulgarian Fishing</span> ви кани да се впуснете в пътешествие, изпълнено с вълнение, спокойствие и тръпката от навиването на перфектния улов. Независимо дали сте опитен риболовец или току що започвате, нашият уебсайт е вашата дестинация за всичко свързано с риболова в България.</p>
+  
+  <h2>Открийте девствените води</h2>
+  
+  <p>Потопете се в красотата на българските реки, езера и водоеми. С кристално чисти води и изобилие от рибни популации, тези места за риболов са убежище за риболовци, търсещи незабравими преживявания. От величествената река Дунав до спокойните дълбини на Балканското езеро, има идеално място за риболов, което ви очаква.</p>
+  
+  <h2>Учете се от експертите</h2>
+  
+  <p>Нашият екип от опитни риболовци е тук, за да ви напътства във всяка стъпка от пътя. Погледнете нашата богата колекция от съвети, техники и насоки за риболов, специално съобразени за българските води. Независимо дали искате да овладеете изкуството на мухарския риболов или търсите съвети за лов на конкретни видове риба, ние ще ви помогнем.</p>
+  <h2>Подгответе се за успех</h2>
+  
+  <p>Оборудвайте се с висококачествени риболовни принадлежности от нашия магазин. Разгледайте нашата богата селекция от въдици, макари, примамки, влакна и аксесоари, внимателно подбрани заради своята производителност и издръжливост. Независимо дали търсите трофейни риби или просто се наслаждавате на спокойни дни във водата, нашият магазин предлага всичко необходимо, за да направите вашите риболовни приключения успешни.</p>
+  
+  <h2>Започнете вашето риболовно приключение днес!</h2>
+  
+  <p>Започнете вашето българско риболовно приключение с нас. Разгледайте нашия уебсайт, потопете се в изобилието от информация и се пригответе да изпитате тръпката от хвърлянето на въдица в някои от най-зашеметяващите места за риболов в България. Присъединете се към нашата общност, споделете своята страст и оставете Bulgarian Fishing да бъде ваш доверен спътник във вашето риболовно пътуване.
 
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Fishing spots</h5>
-            <p class="card-text">Find where and what to fish.</p>
-          </div>
-        </div>
-      </a>
-    </div>
+  <h2>Нямаме търпение да ви видим на водата!</h2>
+    </section>
+</main>
 
-  </div>
 
-  <!-- some producs -->
-  <div class="w-100 row m-0 mb-5">
-    <h1>Products you may like </h1>
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Introduction to fishing</h5>
-            <p class="card-text">Quick start to fishing.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Licences and laws</h5>
-            <p class="card-text">Don't want to get a fine? Read this.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Fishing spots</h5>
-            <p class="card-text">Find where and what to fish.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-  </div>
-
-</div>

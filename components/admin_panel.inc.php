@@ -37,7 +37,6 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
 <h1 class="text-danger text-center my-3">ADMIN PANEL</h1>  
 
 //make it work for redacting elements
-//picture are ordered alphabetically
 
 <div class="container mb-5">
   <div class="row justify-content-center">

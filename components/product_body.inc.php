@@ -1,15 +1,12 @@
 <?php
-require_once('../vendor/erusev/parsedown/Parsedown.php');
-$parsedown = new Parsedown();
-
 $id = (int) $_GET["id"];
 
 $sqlSelectItemDetails = "
 SELECT products.id, products.name, products.description, products.price, tags.tag, images.path 
 FROM products
-LEFT OUTER JOIN products_has_tags ON products.id = products_has_tags.products_id
-LEFT OUTER JOIN tags ON products_has_tags.tags_id = tags.id
-LEFT OUTER JOIN images ON  products.id = images.products_id
+JOIN products_has_tags ON products.id = products_has_tags.products_id
+JOIN tags ON products_has_tags.tags_id = tags.id
+JOIN images ON  products.id = images.products_id
 WHERE products.id = (?) ;
 ";
 $product = $connection->prepare($sqlSelectItemDetails);
@@ -35,14 +32,14 @@ $sqlSelectRelatedItems = '
 <div class="p-5 mt-3 pb-2">
     <div class="container px-2 py-3">
         <div class="row justify-content-center">
-            <div class="col-md-6 d-flex justify-content-center">
-                <div id="ProductCarousel" class="carousel slide rounded border border-gray" data-bs-ride="carousel" style="max-width:500px; max-height: 500px;">
+            <div class="col-md-6">
+                <div id="ProductCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <?php $isActive = true;
                         foreach ($productData["images"] as $img) {
                             echo '
                             <div class="carousel-item '.($isActive ? 'active':'').'">
-                            <img src="/Course-work/images/shop items/'.$img.'" class="d-block w-100 rounded" alt="'.$img.'">
+                            <img src="/Course-work/images/shop items/'.$img.'" class="d-block w-100" alt="'.$img.'">
                             </div>
                             ';
                             $isActive = false;
@@ -59,7 +56,7 @@ $sqlSelectRelatedItems = '
             </div>
             <div class="col-md-6 pt-lg-5">
                 <h1 class="fw-bold"><?php echo $productData["name"]?></h1>
-                <h2 class="mt-0 ps-3 pt-2"><?php echo $productData["price"]?> лв.</h2>
+                <h2 class="mt-0 ps-3"><?php echo $productData["price"]?> лв.</h2>
                 <h6 class="text-secondary">
                     Tags: 
                     <?php
@@ -67,7 +64,7 @@ $sqlSelectRelatedItems = '
                     ?>
                 </h6>
                 <div class="row py-3">
-                    <div class="col-8 col-sm-6 col-md-9 col-lg-7 col-xl-6">
+                    <div class="col-8 col-sm-6 col-md-9 col-lg-7 col-xl-6 mb-3">
                         <form id="addToCart">
                             <div class="input-group">
                                 <input type="number" class="form-control" value="1" min="1" max="10" id="quantity" aria-describedby="basic-addon2">
@@ -76,9 +73,9 @@ $sqlSelectRelatedItems = '
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-10 pt-md-3">
-                <?php echo $parsedown->text($productData['description']); ?>
+                <p>
+                    <?php echo $productData['description'] ?>
+                </p>
             </div>
         </div>
     </div>

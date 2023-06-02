@@ -19,7 +19,7 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-12 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3">
-                <img class="rounded-circle mt-5" width="150px" height="150px" src="/Course-work/images/profile/<?php if($userInfo['picture']){echo $userInfo['picture'];} else{ echo 'default.jpg';} ?>" style="object-fit: cover;">
+                <img class="rounded-circle mt-5" width="150px" src="/Course-work/images/profile/<?php if($userInfo['picture']){echo $userInfo['picture'];} else{ echo 'default.jpg';} ?>">
                 <h3 class="font-weight-bold"><?php echo $userInfo['first_name'].' '.$userInfo['last_name']?></h3>
                 <h5 class="text-black-50"><?php echo $userInfo['email']?></h5>
                 <br>
@@ -89,7 +89,7 @@
 <script>
 
   $("#userDetail").on("submit", function(e) {
-    e.preventDefault();
+    //e.preventDefault();
     var firstName = $("#firstName").val();
     var surname = $("#surname").val();
     var phone = $("#phone").val();
@@ -115,7 +115,7 @@
 
   
   $("#userPassword").on("submit", function(e) {
-    e.preventDefault();
+    //e.preventDefault();
     
     var passwordOld = $("#passwordOld").val();
     var passwordNew = $("#passwordNew").val();
@@ -137,7 +137,7 @@
   });
 
   $("#userPicture").on("submit", function(e) {
-    e.preventDefault();
+    //e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
       url: '/Course-work/components/update_user_picture.php',
