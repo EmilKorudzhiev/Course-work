@@ -72,6 +72,7 @@ if(isset($_SESSION["CART"])){
       </div>
     </div>
   </nav>
+  
 </header>
 
 
