@@ -6,7 +6,12 @@ $quantity = $_POST["quantity"];
 
 
 if(isset($_SESSION["CART"][$id])){
-    $_SESSION["CART"][$id] += $quantity;
+    if($_SESSION["CART"][$id]+$quantity<=10){
+        $_SESSION["CART"][$id] += $quantity;
+    }else{
+        $_SESSION["CART"][$id] = 10;
+        echo "Даден артикул може да бъде закупен максимално до десет пъти!";
+    }
 }else{
     $_SESSION["CART"][$id] = $quantity;
 }
