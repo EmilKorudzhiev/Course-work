@@ -23,10 +23,33 @@ $productData['tags'] = array_unique($productData['tags']);
 $productData['images'] = array_unique($productData['images']);
 
 
-$sqlSelectRelatedItems = '
-
-';
-
+$placeholders = implode(',', array_fill(0, count($productData['tags']), '?'));
+$sqlSelectRelatedItems = "
+SELECT products.id, products.name, products.description, products.price,
+        (SELECT GROUP_CONCAT(DISTINCT tags.tag SEPARATOR ', ')
+        FROM products_has_tags
+        JOIN tags ON products_has_tags.tags_id = tags.id
+        WHERE products_has_tags.products_id = products.id
+        ) AS tags,
+        images.path
+    FROM (
+        SELECT products.id
+        FROM products
+		LEFT OUTER JOIN products_has_tags ON products.id = products_has_tags.products_id
+        LEFT OUTER JOIN tags ON products_has_tags.tags_id = tags.id
+        WHERE tags.tag IN ($placeholders) 
+        ORDER BY products.id
+    ) AS page_products
+    LEFT OUTER JOIN products ON page_products.id = products.id
+    LEFT OUTER JOIN products_has_tags ON products.id = products_has_tags.products_id
+    LEFT OUTER JOIN tags ON products_has_tags.tags_id = tags.id
+    LEFT OUTER JOIN images ON products.id = images.products_id
+    GROUP BY products.id
+    ORDER BY rand()
+    LIMIT 4
+    ;";
+    $relatedItems = $connection->prepare($sqlSelectRelatedItems);
+    $relatedItems -> execute($productData['tags']);
 ?>
 
 <div class="p-5 mt-3 pb-2">
@@ -84,73 +107,28 @@ $sqlSelectRelatedItems = '
 <div class="py-3 bg-light w-100">
     <div class="container px-1">
         <h2 class="text-center pb-3 m-0 fw-bold">Подобни продукти</h2>
-
         <div class="row row-cols-2 row-cols-md-4 justify-content-center"> 
-
-            <div class="col pb-3">
-                <a href="">
-                    <div class="card">
-                    <img src="..\images\shop items\160913240_7-700x700.jpg" class="card-img-top border-bottom" alt="image"/>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                erwstrssgf
-                            </h5>
-                            <p class="card-text">
-                                13.20 лв
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col pb-3">
-                <a href="">
-                    <div class="card">
-                    <img src="..\images\shop items\160913240_7-700x700.jpg" class="card-img-top border-bottom" alt="image"/>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                erwstrssgf
-                            </h5>
-                            <p class="card-text">
-                                13.20 лв
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col pb-3">
-                <a href="">
-                    <div class="card">
-                    <img src="..\images\shop items\160913240_7-700x700.jpg" class="card-img-top border-bottom" alt="image"/>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                erwstrssgf
-                            </h5>
-                            <p class="card-text">
-                                13.20 лв
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col pb-3">
-                <a href="">
-                    <div class="card">
-                    <img src="..\images\shop items\160913240_7-700x700.jpg" class="card-img-top border-bottom" alt="image"/>
-                        <div class="card-body">
-                            <h5 class="card-title">
-                                erwstrssgf
-                            </h5>
-                            <p class="card-text">
-                                13.20 лв
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            <?php
             
+                while($row = $relatedItems->fetch()){
+                    echo '
+                    <div class="col pb-3">
+                        <a href=".\product.php?id='.$row["id"].'">
+                            <div class="card">
+                            <img src="..\images\shop items\\'.$row["path"].'" id="productImg" class="card-img-top border-bottom" alt="'.$row["path"].'"/>
+                                <div class="card-body">
+                                    <h5 class="card-title text-truncate">
+                                        '.$row["name"].'
+                                    </h5>
+                                    <p class="card-text">
+                                        '.$row["price"].'лв.
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>';
+                }
+            ?>    
         </div>
     </div>
 </div>
