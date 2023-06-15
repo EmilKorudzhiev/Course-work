@@ -36,19 +36,19 @@
                         <form id="userDetail">
                             <div class="row mt-2">
                                 <div class="col-md-6 pb-2">
-                                    <label class="labels">Име</label>
+                                    <label for="firstName">Име</label>
                                     <input type="text" class="form-control" id="firstName" placeholder="Първо име" value="<?php echo $userInfo['first_name']?>" required>
                                 </div>
                                 <div class="col-md-6 pb-2">
-                                    <label class="labels">Фамилия</label>
+                                    <label for="surname">Фамилия</label>
                                     <input type="text" class="form-control" id="surname" placeholder="Фамилия" value="<?php echo $userInfo['last_name']?>" required>
                                 </div>
                                 <div class="col-md-12 pb-2">
-                                    <label class="labels">Телефонен номер</label>
+                                    <label for="phone">Телефонен номер</label>
                                     <input type="text" class="form-control" id="phone" placeholder="Телефонен номер" value="<?php echo $userInfo['phone']?>" required>
                                 </div>
                                 <div class="col-md-12 pb-2">
-                                    <label class="labels">Имейл</label>
+                                    <label for="email">Имейл</label>
                                     <input type="email" class="form-control" id="email" placeholder="Имейл" value="<?php echo $userInfo['email']?>" required>
                                 </div>
                                 <div class="mb-3 text-center">

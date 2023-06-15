@@ -19,17 +19,17 @@ $product_id = $connection -> lastInsertId();
 
 $sqlInsertImage = '
 INSERT INTO images (products_id, path) 
-VALUES (?,?);
-';
+VALUES (?,?)
+;';
 
 $insertImage = $connection->prepare($sqlInsertImage);
 
-foreach ($images["name"] as $key => $img) {
-  if ( $images["type"][$key] != "image/jpeg" && $images["type"][$key] != "image/png" && $images["type"][$key] != "image/jpeg") {
+foreach($images["name"] as $key => $img) {
+  if($images["type"][$key] != "image/jpeg" && $images["type"][$key] != "image/png" && $images["type"][$key] != "image/jpeg") {
 		
 		echo $images["name"][$key]." Това не е снимка";
 		
-	} else {
+	}else{
 		move_uploaded_file($images["tmp_name"][$key], "../images/shop items/".$product_id."_".$key.".jpg");  
     $insertImage->execute([$product_id, $product_id."_".$key.".jpg"]);
   }
@@ -40,7 +40,7 @@ foreach ($images["name"] as $key => $img) {
 $sqlInsertTag = '
 INSERT INTO products_has_tags (products_id, tags_id) 
 VALUES (?,?)
-';
+;';
 $insertTag = $connection->prepare($sqlInsertTag);
 
 foreach ($tags as $tag_id) {

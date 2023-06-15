@@ -140,7 +140,7 @@ if($result -> rowCount() == 0) {
         echo 
         '<div class="p-2">
             <div class="card h-100">
-                <a href=".\product.php?id='.$row["id"].'">
+                <a href=".\product.php?id='.$row["id"].'" class="productImg">
                     <img src="..\images\shop items\\'.$row["path"].'" id="productImg" class="card-img-top border-bottom" alt="image"/>
                 </a>  
                 <div class="card-body p-2">

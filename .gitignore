@@ -1,5 +1,6 @@
 /accessDetails/
 
+/.idea/
 /vendor/
 /composer.json
 /composer.lock

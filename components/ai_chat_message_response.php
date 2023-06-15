@@ -4,6 +4,7 @@ require("../accessDetails/openaiKey.php");
 
 require_once ('../vendor/autoload.php');
 require_once("../vendor/orhanerday/open-ai/src/OpenAi.php");
+
 use orhanerday\OpenAi\OpenAi;
 
 $context = $_SESSION['context'] ?? [];

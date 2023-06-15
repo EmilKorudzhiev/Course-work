@@ -24,17 +24,17 @@ if(empty($_SESSION["CART"])){
         echo '
         <li class="list-group-item d-flex justify-content-between align-items-center border mb-2">
             <div class="row">
-                <div class="col-12 col-sm-2 p-1 d-flex align-items-center p-0">
+                <div class="col-12 col-sm-2 p-0 d-flex align-items-center">
                     <img class="rounded float-left img-fluid" src="\Course-work\images\shop items\\'.$getProductResult['path'].'" alt="'.$getProductResult['path'].'">
                 </div>
                 <div class="col-12 col-sm-4 p-1 d-flex align-items-center">
-                    <h3 class="form-control">'.$getProductResult['name'].'</h3>
+                    <h3 class="form-control m-0">'.$getProductResult['name'].'</h3>
                 </div>
                 <div class="col-6 col-sm-3 p-1 text-center d-flex align-items-center">
-                    <h3 class="form-control">'.number_format($getProductResult['price'], 2).'лв.</h3>
+                    <h3 class="form-control m-0">'.number_format($getProductResult['price'], 2).'лв.</h3>
                 </div>
                 <div class="col-6 col-sm-2 p-1 text-center d-flex align-items-center">
-                    <h3 class="form-control">'.$_SESSION['CART'][$productId].'x</h3>
+                    <h3 class="form-control m-0">'.$_SESSION['CART'][$productId].'x</h3>
                 </div>
                 <div class="col-12 col-sm-1 p-0 d-flex align-items-center justify-content-center">
                     <div>
@@ -49,12 +49,15 @@ if(empty($_SESSION["CART"])){
 
     
     echo'
-    <li class="list-group-item d-flex border mb-2">
-        <div class="row w-100 d-flex justify-content-end">                
-            <div class="col-lg-6 p-1 text-center d-flex align-items-center">
-                <h3 class="form-control ms-1">Общо: </h3>
-                <h3 class="form-control ms-1">'.number_format($priceOfAllElements, 2).'лв.</h3>
-            </div>                 
+    <li class="list-group-item d-flex justify-content-center align-items-center border mb-2">
+        <div class="row w-100 d-flex align-items-center justify-content-center">
+            <div class="col-12 col-sm-6 d-flex align-items-center justify-content-center mb-2 mb-sm-0">
+                <h3 class="form-control text-center m-0 me-1">Общо:</h3>
+                <h3 class="form-control text-center m-0">'.number_format($priceOfAllElements, 2).'лв.</h3>
+            </div>
+            <div class="col-12 col-sm-6 d-flex align-items-center justify-content-center justify-content-sm-end">
+                <a href="/Course-work/controllers/finish_order.php" class="btn btn-primary">Завърши поръчка</a>
+            </div>
         </div>
     </li>';
 

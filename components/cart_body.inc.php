@@ -14,17 +14,8 @@
                         ?>
                     </ul>
                 </div>
-
             </div>
         </div>
-
-        <div class="col-6 col-md-3">
-            <div>
-                buttons
-            </div>
-
-        </div>
-
     </div>
 </div>
 
