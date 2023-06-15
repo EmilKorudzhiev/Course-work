@@ -8,7 +8,7 @@ $file_type = $_FILES['picture']['type'];
 $sqlGetUser= '
 SELECT *
 FROM users
-WHERE email = (?); 
+WHERE email = ?; 
 ';
 $user = $connection -> prepare($sqlGetUser);
 $user -> execute([$_SESSION["USER"][3]]);
