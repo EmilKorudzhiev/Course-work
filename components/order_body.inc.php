@@ -4,7 +4,7 @@
     }
     if(!isset($_SESSION["USER"])){
         echo '
-        <div class="container pt-5 mt-3">
+        <div class="container py-5 my-3">
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-lg-8 list-group p-0 border">
                     <h3 class="text-center">За да приключите поръчката трябва да сте влeзли в профила си.</h3>

@@ -16,7 +16,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
 
 
 ?>
-<div class="container-fluid m-0 mt-5 pt-3 w-100">
+<div class="container-fluid m-0 mt-5 w-100">
     <div class="row flex-nowrap overflow-hidden">
         <div class="col-12 col-md-2 collapse d-md-block bg-dark text-white px-0 pb-3" id="sidebar">
 
@@ -123,42 +123,17 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
 
 <script>
 
-$(document).ready(function() {
-   
-  var formData;
+  $(document).ready(function() {
+    
+    var formData;
 
-  $("#filters").on("submit", function(e) {
-    e.preventDefault();
-    formData = new FormData(this);
-    formData.append('page', '1');
-
-    $.ajax({
-      url: '../components/store_item_display.php',
-      type: 'POST',
-      data: formData,
-      processData: false,
-      contentType: false,
-      success: function(response) {
-        window.scrollTo(0,0);
-        $("#items").html(response);
-      },
-      error: function(jqXHR, textStatus, errorMessage) {
-        console.log(errorMessage);
-      }
-    });
-  });
-
-  $("#filters").submit();
-
-  const container = document.querySelector('#items');
-
-  container.addEventListener('click', function (e) {
-    if (e.target.classList.contains('paginationButton')) {
-      var value = e.target.value;
-      formData.append('page', value);
+    $("#filters").on("submit", function(e) {
+      e.preventDefault();
+      formData = new FormData(this);
+      formData.append('page', '1');
 
       $.ajax({
-        url: '../components/store_item_display.php',
+        url: '/Course-work/components/shop_item_display.php',
         type: 'POST',
         data: formData,
         processData: false,
@@ -171,7 +146,7 @@ $(document).ready(function() {
           console.log(errorMessage);
         }
       });
-    }
+    });
 
     if(e.target.classList.contains('addToCartButton')){
       const quantity = 1;
@@ -188,12 +163,52 @@ $(document).ready(function() {
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);
+    $("#filters").submit();
+
+    const container = document.querySelector('#items');
+
+    container.addEventListener('click', function (e) {
+      if (e.target.classList.contains('paginationButton')) {
+        var value = e.target.value;
+        formData.append('page', value);
+
+        $.ajax({
+          url: '/Course-work/components/shop_item_display.php',
+          type: 'POST',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function(response) {
+            window.scrollTo(0,0);
+            $("#items").html(response);
+          },
+          error: function(jqXHR, textStatus, errorMessage) {
+            console.log(errorMessage);
+          }
+        });
+      }
+
+      if(e.target.classList.contains('addToCartButton')){
+        const quantity = 1;
+        var productId = e.target.value;
+        $.ajax({
+        url: "/Course-work/components/update_cart.php",
+        type: "post",
+        data: {
+          id: productId,
+          quantity: quantity
+        },
+        success: function(response) {
+          alert(response);
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr.responseText);
+        }
+      });
       }
     });
-    }
+    
   });
-  
-});
 
 </script>
 
@@ -218,7 +233,7 @@ $(document).ready(function() {
       let minPrice = parseInt(priceInput[0].value),
         maxPrice = parseInt(priceInput[1].value);
         if (maxPrice - minPrice >= priceGap && maxPrice <= rangeInput[1].max) {
-          if (e.target.className === "input-min") {
+          if (e.target.classList.contains("input-min")) {
             rangeInput[0].value = minPrice;
             range.style.left = ((minPrice - rangeInput[0].min) / (rangeInput[0].max - rangeInput[0].min)) * 100 + "%";
           } else {
@@ -235,7 +250,7 @@ $(document).ready(function() {
           maxVal = parseInt(rangeInput[1].value);
 
         if (maxVal - minVal < priceGap) {
-          if (e.target.className === "range-min") {
+          if (e.target.classList.contains("range-min")) {
             rangeInput[0].value = maxVal - priceGap;
           } else {
             rangeInput[1].value = minVal + priceGap;

@@ -1,5 +1,5 @@
 <div class="row w-100 justify-content-center m-auto">
-    <div class="AIchat col-12 col-md-10 col-lg-8 col-xl-6 p-3 mt-5">
+    <div class="AIchat col-12 col-md-10 col-lg-8 col-xl-6 pb-3 mt-5">
         <header class="navbar">
             <a href="https://openai.com/blog/chatgpt" style="display:inline-flex;" class="nav-link align-items-center">
                 <span class="d-none d-sm-block" style="margin-right:5px;">Powered by</span> 

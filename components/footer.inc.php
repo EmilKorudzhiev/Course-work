@@ -3,7 +3,6 @@
   <!-- Section: Links  -->
   <section class="" style="background-color: #1f5162">
     <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
         <div class="col-sm-6 col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
@@ -19,9 +18,15 @@
           </p>
           <p>
             <h6><i class="bi bi-phone me-2"></i> Phone 3: +1 555 123 456</h6>
+        <div class="col-sm-6 col-md-4 mx-auto mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Метна-Вадя
+          </h6>
+          <p>
+            Сайта е създаден през 2023 като курсова работа.
+            Създатели 19505, 19509, 19513.
           </p>
         </div>
-        <!-- Grid column -->
 
         <!-- Grid column -->
         <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -72,10 +77,17 @@
           <p>
            <h6><i class="bi bi-envelope-fill me-2"></i> 19513@uktc-bg.com</h6> 
           </p>
+        <div class="col-sm-6 col-md-4 mx-auto mb-md-0 mb-4">
+          <h6 class="text-uppercase fw-bold mb-4">Контакти</h6>
+          <p><i class="bi bi-house me-3"></i> НПГ по КТС общежитие, стая 312</p>
+          <p>
+            <i class="bi bi-envelope me-3"></i>
+            metna-vadq@gmail.com 
+          </p>
+          <p><i class="bi bi-phone me-3"></i> +087 628 0048</p>
+        
         </div>
-        <!-- Grid column -->
       </div>
-      <!-- Grid row -->
     </div>
   </section>
   <!-- Section: Links  -->
@@ -85,9 +97,8 @@
     &copy; 2023 Риболовен свят
   </div>
   <!-- Copyright -->
-</footer>
-<!-- Footer -->
 
+</footer>
 
 </body>
 </html>

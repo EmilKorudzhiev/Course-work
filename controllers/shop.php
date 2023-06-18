@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 <?php
-$active= "store";
+$active= "shop";
 
 require('../components/database_connection.inc.php');
 
