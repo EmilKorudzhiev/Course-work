@@ -22,6 +22,7 @@ $updatePassword = $connection -> prepare($sqlUpdateUserPassword);
 
 if($oldPassResult['password'] == $passwordOld){
     $updatePassword -> execute([$passwordNew, $_SESSION["USER"][3]]);
+    echo "Updated successfully";
 }else{
     echo "Wrong password";
 }

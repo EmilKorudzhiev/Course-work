@@ -1,147 +1,67 @@
+<?php 
+  $sqlSelectItems = "
+  SELECT products.id, products.name, products.description, products.price,
+        (SELECT GROUP_CONCAT(DISTINCT tags.tag SEPARATOR ', ')
+        FROM products_has_tags
+        JOIN tags ON products_has_tags.tags_id = tags.id
+        WHERE products_has_tags.products_id = products.id
+        ) AS tags,
+        images.path
+    FROM (
+        SELECT products.id
+        FROM products
+		LEFT OUTER JOIN products_has_tags ON products.id = products_has_tags.products_id
+        LEFT OUTER JOIN tags ON products_has_tags.tags_id = tags.id 
+        ORDER BY products.id
+    ) AS page_products
+    LEFT OUTER JOIN products ON page_products.id = products.id
+    LEFT OUTER JOIN products_has_tags ON products.id = products_has_tags.products_id
+    LEFT OUTER JOIN tags ON products_has_tags.tags_id = tags.id
+    LEFT OUTER JOIN images ON products.id = images.products_id
+    GROUP BY products.id
+    ORDER BY rand()
+    LIMIT 3
+    ;";
+    $items = $connection->prepare($sqlSelectItems);
+    $items -> execute();
+    ?>
 
-<div class="jumbotron w-100 pt-5 m-0 mt-5 mb-5" id="mainPicTop">
-  <div class="container">
-    <div class="pb-5">
 
-      <h1 class="text-white pt-5 ">
-        Best Fishing Site In Bulgaria!
-      </h1>
+<div class="mainPic pt-5 m-0 my-5">
+  <div class="container py-5">
+    <h1 class="ps-2 pt-3">
+      Мястото за всеки рибар!
+    </h1>
 
-      <h2 class="text-white ps-5">
-        Wide Selection Of Fishing Gear AND a Forum for discussions!
-      </h2>
-
-      <div class="p-5">
-        <button type="button" class="btn btn-light"><a href="/Course-work/controllers/register.php">REGISTER NOW</a></button>
-        <button type="button" class="btn btn-light"><a href="/Course-work/controllers/login.php">LOG IN NOW</a></button>
-      </div>
-
-    </div>
+    <h2 class="ps-5">
+      Метна-Вадя Ви предоставя голям набор от продукти за вашите рибарски приключения.
+    </h2>
   </div>
 </div>
 
-<div class="container" id="mainInfo">
+<div class="row justify-content-center w-100 m-auto">
+  <div class="row col-md-10 col-lg-8 col-xl-6 m-0 mb-5 justify-content-center">
+    <h1>Продукти, които ще ви харесат</h1>
 
-  <div class="w-100 row m-0 mb-5">
-
-    <div class="col-md-4 pb-3">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Introduction to fishing</h5>
-            <p class="card-text">Quick start to fishing.</p>
+    <?php 
+    while($row = $items->fetch()){
+      echo '
+      <div class="col-6 col-sm-4 mb-2">
+        <a href=".\product.php?id='.$row["id"].'">
+          <div class="card">
+            <img src="..\images\shop items\\'.$row["path"].'" id="productImg" class="card-img-top border-bottom" alt="'.$row["path"].'"/>
+            <div class="card-body">
+              <h5 class="card-title text-truncate">
+              '.$row["name"].'
+              </h5>
+              <p class="card-text">
+              '.$row["price"].'лв.
+              </p>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4 pb-3">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Licences and laws</h5>
-            <p class="card-text">Don't want to get a fine? Read this.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4 pb-3">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Fishing spots</h5>
-            <p class="card-text">Find where and what to fish.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
+        </a>
+      </div>';
+    }
+    ?>
   </div>
-
-<!-- forum post -->
-  <div class="w-100 row m-0 mb-5">
-    <h1>Top forum posts</h1>
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Introduction to fishing</h5>
-            <p class="card-text">Quick start to fishing.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Licences and laws</h5>
-            <p class="card-text">Don't want to get a fine? Read this.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Fishing spots</h5>
-            <p class="card-text">Find where and what to fish.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-  </div>
-
-  <!-- some producs -->
-  <div class="w-100 row m-0 mb-5">
-    <h1>Products you may like </h1>
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishingrodclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Introduction to fishing</h5>
-            <p class="card-text">Quick start to fishing.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_illegal.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Licences and laws</h5>
-            <p class="card-text">Don't want to get a fine? Read this.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <div class="col-md-4">
-      <a href="#">
-        <div class="card">
-          <img src="..\images\site assets\fishing_fishclose.jpg" class="card-img-top" alt="Start fishing"/>
-          <div class="card-body">
-            <h5 class="card-title">Fishing spots</h5>
-            <p class="card-text">Find where and what to fish.</p>
-          </div>
-        </div>
-      </a>
-    </div>
-
-  </div>
-
-</div>
+</div>  

@@ -1,3 +1,5 @@
+<title>Влизане в профил</title>
+
 <?php
 $active= "";
 
@@ -9,3 +11,4 @@ include('../components/login_body.inc.php');
 
 require('../components/footer.inc.php');
 ?>
+

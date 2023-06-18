@@ -1,3 +1,5 @@
+<title>Начало</title>
+
 <?php
 $active= "home";
 
@@ -9,3 +11,4 @@ include('../components/home_body.inc.php');
 
 require('../components/footer.inc.php');
 ?>
+

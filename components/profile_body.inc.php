@@ -106,6 +106,7 @@
       },
       success: function(response) {
         alert(response);
+        location.reload();
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);
@@ -129,6 +130,7 @@
       },
       success: function(response) {
         alert(response);
+        location.reload();
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);
@@ -147,6 +149,7 @@
       contentType: false,
       success: function(response) {
         console.log(response);
+        location.reload();
       },
       error: function(jqXHR, textStatus, errorMessage) {
         console.log(errorMessage);

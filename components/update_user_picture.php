@@ -30,6 +30,7 @@ if ( $file_type != "image/jpeg" && $file_type != "image/png" && $file_type != "i
     $updatePicture -> execute([$userResult["id"].".jpg", $_SESSION["USER"][3]]);
     move_uploaded_file( $file_temp, "../images/profile/".$userResult["id"].".jpg" );
     $_SESSION["USER"] = [$_SESSION["USER"][0], $_SESSION["USER"][1], $_SESSION["USER"][2], $_SESSION["USER"][3], $userResult["id"].".jpg", $_SESSION["USER"][5]];
+    echo "Updated successfully";
 }
 
 ?>

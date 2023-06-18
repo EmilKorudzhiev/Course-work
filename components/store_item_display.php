@@ -141,7 +141,7 @@ if($result -> rowCount() == 0) {
         '<div class="p-2">
             <div class="card h-100">
                 <a href=".\product.php?id='.$row["id"].'" class="productImg">
-                    <img src="..\images\shop items\\'.$row["path"].'" id="productImg" class="card-img-top border-bottom" alt="image"/>
+                    <img src="..\images\shop items\\'.$row["path"].'" class="productImg card-img-top border-bottom" alt="image"/>
                 </a>  
                 <div class="card-body p-2">
                     <div>
@@ -177,7 +177,7 @@ if($result -> rowCount() == 0) {
             <li class="page-item ';
             if($page == 1)echo "disabled"; 
             echo '">
-            <button class="page-link bi bi-caret-left paginationButton h-100" value="'. intval($page-1) .'"></button>
+            <button class="page-link bi bi-caret-left paginationButton h-100 text-dark" value="'. intval($page-1) .'"></button>
             </li>';
 
 
@@ -187,7 +187,7 @@ if($result -> rowCount() == 0) {
         echo '<li class="page-item '; 
         if($page == intval($page-$dif))echo "disabled"; 
         echo '">
-            <button class="page-link paginationButton" value="'.intval($page-$dif).'">'.intval($page-$dif).'</button>
+            <button class="page-link paginationButton text-dark" value="'.intval($page-$dif).'">'.intval($page-$dif).'</button>
         </li>';
         }
         $dif--;
@@ -197,7 +197,7 @@ if($result -> rowCount() == 0) {
             <li class="page-item ';
             if($page == $numOfPages)echo "disabled"; 
             echo '">
-                <button class="page-link bi bi-caret-right paginationButton h-100" value="'. intval($page+1) .'"></button>
+                <button class="page-link bi bi-caret-right paginationButton h-100 text-dark" value="'. intval($page+1) .'"></button>
             </li>
         </ul>
     </div>';

@@ -1,3 +1,5 @@
+<title>Магазин</title>
+
 <?php
 $active= "store";
 
@@ -9,3 +11,4 @@ include('../components/shop_body.inc.php');
 
 require('../components/footer.inc.php');
 ?>
+

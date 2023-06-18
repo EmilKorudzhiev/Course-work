@@ -1,3 +1,5 @@
+<title>Поръчка</title>
+
 <?php
 $active= "cart";
 
@@ -9,3 +11,4 @@ include('../components/order_body.inc.php');
 
 require('../components/footer.inc.php');
 ?>
+

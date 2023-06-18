@@ -13,84 +13,7 @@ use PHPMailer\PHPMailer\Exception;
 $mail = new PHPMailer(true);
 
 
-
-$sqlGetProduct = '
-SELECT * FROM products 
-JOIN images ON  products.id = images.products_id
-WHERE products.id=(?);
-';
-$getProduct= $connection -> prepare($sqlGetProduct);
-
-$listOfProducts='';                    
-$priceOfAllElements = 0;
-foreach ($_SESSION["CART"] as $productId => $quantity) {
-    $getProduct -> execute([$productId]);
-    $getProductResult = $getProduct -> fetch();
-    $listOfProducts .='
-                <li class="list-group-item d-flex justify-content-between align-items-center border mb-2">
-                    <div class="row">
-                        <div class="col-12 col-sm-2 p-0 d-flex align-items-center">
-                            <img class="rounded float-left img-fluid" src="images\shop items\1_0.jpg" alt="'.$getProductResult['path'].'">
-                        </div>
-                        <div class="col-12 col-sm-5 p-1 d-flex align-items-center">
-                            <h3 class="form-control m-0">'.$getProductResult['name'].'</h3>
-                        </div>
-                        <div class="col-6 col-sm-3 p-1 text-center d-flex align-items-center">
-                            <h3 class="form-control m-0">'.number_format($getProductResult['price'], 2).'лв.</h3>
-                        </div>
-                        <div class="col-6 col-sm-2 p-1 text-center d-flex align-items-center">
-                            <h3 class="form-control m-0">'.$_SESSION['CART'][$productId].'x</h3>
-                        </div>
-                    </div>
-                </li>
-    ';
-    $priceOfAllElements += $getProductResult['price']*$_SESSION['CART'][$productId];
-}
-
-$body = '
-<!DOCTYPE html>
-<html lang="bg">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Поръчка</title>
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 offset-md-1">
-                <div class="card mt-4">
-                    <div class="card-header">
-                        <h3>Поръчка</h3>
-                    </div>
-                <div class="card-body">
-                    <p>Благодарим за пръчката Ви, ето какво сте си поръчали:</p>
-                
-                    <ul class="list-group border p-2">'
-                    .$listOfProducts.
-                    '</ul>
-
-                    <div class="d-flex justify-content-end mx-3">
-                        <p>Обща цена: '.$priceOfAllElements.'лв.</p>
-                    </div>
-
-                    <div>
-                        <p>Получател: [Customer Name]</p>
-                        <p>Адрес: [Shipping Address]</p>
-                        <p>Град: </p>
-                        <p>Доставка до вас / доставка до офис на Еконт</p>
-                        <p>Начин на плащане: [Payment Method]</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>';
-
 try {
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
@@ -105,11 +28,120 @@ try {
    
     $mail->isHTML(true);
     $mail->Subject = 'Поръчка за '. $_SESSION["USER"][0] .' '. $_SESSION["USER"][1];
+
+
+    $sqlGetProduct = '
+    SELECT * FROM products 
+    JOIN images ON  products.id = images.products_id
+    WHERE products.id=(?);
+    ';
+    $getProduct= $connection -> prepare($sqlGetProduct);
+    
+    $listOfProducts='';                    
+    $priceOfAllElements = 0;
+    foreach ($_SESSION["CART"] as $productId => $quantity) {
+        $getProduct -> execute([$productId]);
+        $getProductResult = $getProduct -> fetch();
+        $listOfProducts .='
+        <tr>
+            <td style="padding: 10px;
+                        text-align: left;
+                        border-bottom: 1px solid #dddddd;">
+                <img style="max-width: 100px;
+                            height: auto;
+                            margin-right: 10px;"
+                src="cid:'.$getProductResult["path"].'" alt="'.$getProductResult['name'].'">
+            </td> 
+            <td style="padding: 10px;
+                        text-align: left;
+                        border-bottom: 1px solid #dddddd;">'.$getProductResult['name'].'</td>
+            <td style="padding: 10px;
+                        text-align: left;
+                        border-bottom: 1px solid #dddddd;">'.$_SESSION['CART'][$productId].'x</td>
+            <td style="padding: 10px;
+                        text-align: left;
+                        border-bottom: 1px solid #dddddd;">'.number_format($getProductResult['price'], 2).' лв.</td>
+        </tr>
+        ';
+        $priceOfAllElements += $getProductResult['price']*$_SESSION['CART'][$productId];
+        $mail->addEmbeddedImage('../images/shop items/'.$getProductResult["path"], $getProductResult["path"]); 
+    }
+    $body = '
+    <body style="font-family: Arial, sans-serif;
+                 background-color: #f5f5f5;
+                 margin: 0;
+                 padding: 0;">
+
+        <div style="max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    background-color: #ffffff;
+                    border: 1px solid #dddddd;
+                    border-radius: 6px;
+                    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+
+            <h1 style="font-size: 24px;
+                       color: #333333;
+                       margin-top: 0;
+                       margin-bottom: 20px;">Поръчка</h1>
+
+            <p style="font-size: 12px;
+                      margin-bottom: 10px;">Благодарим за пръчката Ви, ето какво сте си поръчали:</p>
+            
+            <table style="width: 100%;
+                          border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #f5f5f5;">
+                        <th style="padding: 10px;
+                                   text-align: left;
+                                   border-bottom: 1px solid #dddddd;">Снимка</th>
+                        <th style="padding: 10px;
+                                   text-align: left;
+                                   border-bottom: 1px solid #dddddd;">Име на продукт</th>
+                        <th style="padding: 10px;
+                                   text-align: left;
+                                   border-bottom: 1px solid #dddddd;">Бройка</th>
+                        <th style="padding: 10px;
+                                   text-align: left;
+                                   border-bottom: 1px solid #dddddd;">Цена</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                '.$listOfProducts.'
+                </tbody>
+    
+                <tfoot>
+                    <tr>
+                        <td style="text-align: right;
+                                   font-weight: bold;"
+                        colspan="4">Общо: '.number_format($priceOfAllElements,2).' лв.</td>
+                    </tr>
+                </tfoot>
+            </table>
+    
+            <p style="font-size: 12px;">Получател: '.$_SESSION["USER"][0]." ".$_SESSION["USER"][1].'</p>
+            <p style="font-size: 12px;">Град: '.$city.'</p>
+
+            '.($address == null ? 
+            '<p style="font-size: 12px;">Доставка до офис на Еконт</p>' :
+            '<p style="font-size: 12px;">Адрес: '.$address.'</p>
+            <p style="font-size: 12px;">Доставка до вас </p>').'
+            
+            <p style="font-size: 12px;">Начин на плащане:'.($cardNumber == null ? 'Плащане на място' : 'Платено с карта').'</p>
+    
+            <p style="font-size: 10px;
+                      margin-top: 20px;
+                      margin-bottom: 5px;"
+                      >Metna-Vadq</p>
+            
+        </div>
+    </body>';
+
     $mail->Body = $body;
 
 
     $mail->send();
-    echo 'Message has been sent';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

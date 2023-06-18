@@ -90,7 +90,7 @@ SELECT products.id, products.name, products.description, products.price,
                     ?>
                 </h6>
                 <div class="row py-3">
-                    <div class="col-8 col-sm-6 col-md-9 col-lg-7 col-xl-6">
+                    <div class="col-12 col-sm-6 col-md-9 col-lg-7 col-xl-6">
                         <form id="addToCart">
                             <div class="input-group">
                                 <input type="number" class="form-control" value="1" min="1" max="10" id="quantity" aria-describedby="basic-addon2">

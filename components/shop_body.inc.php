@@ -55,14 +55,18 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
                   </div>
 
                   <div class="price-input row mt-3">
-                      <div class="col-6 col-md-12 p-0 d-flex justify-content-center">
-                        <span>Мин</span>
-                        <input type="number" class="input-min" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="0">
+                      <div class="col-6 p-0 d-flex justify-content-center">
+                        <div class="w-75 form-floating">
+                          <input id="input-min" type="number" class="input-min form-control px-0 pb-0 text-center" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="0">
+                          <label for="input-min">Мин</label>
+                        </div>
                       </div>
                     
-                      <div class="col-6 col-md-12 p-0 d-flex justify-content-center">
-                        <span>Макс</span>
-                        <input type="number" class="input-max" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="<?php echo ceil($maxPrice['max_price']); ?>">
+                      <div class="col-6 p-0 d-flex justify-content-center">
+                        <div class="w-75 form-floating">
+                          <input id="input-max" type="number" class="input-max form-control px-0 pb-0 text-center" min="0" max="<?php echo ceil($maxPrice['max_price']); ?>" value="<?php echo ceil($maxPrice['max_price']); ?>">
+                          <label for="input-max">Макс</label>
+                        </div>
                       </div>
                   </div>
               </div>
@@ -102,10 +106,10 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
         <div class="col collapse d-block p-0 w-100">
 
             <div class="d-md-none col-auto text-white d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-bs-toggle="collapse" 
-                data-bs-target="#sidebar" aria-expanded="false" aria-controls="sidebar">
-                Toggle Sidebar
-                </button>
+              <button type="button" class="btn btn-secondary mt-2" data-bs-toggle="collapse" 
+              data-bs-target="#sidebar" aria-expanded="false" aria-controls="sidebar">
+              Търсине с Филтри
+              </button>
             </div>
 
             <div class="p-0 m-0 w-100" id="items">

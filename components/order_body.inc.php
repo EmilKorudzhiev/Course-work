@@ -87,7 +87,7 @@
                                 </div> 
                             </div>
                             <div class="d-flex justify-content-center">
-                                <button class="btn btn-primary mt-2" type="submit">Направи поръчка</button>
+                              <button class="btn btn-primary mt-2" id="submitOrder" type="submit">Направи поръчка</button>
                             </div>
                         </div>
                     </form>
@@ -99,58 +99,58 @@
 ?>
 
 <script>
-const checkboxDeliveryType = document.getElementById("deliveryType");
-const divAddressInfo = document.getElementById("addressInfo");
-checkboxDeliveryType.addEventListener("change", function() {
-  if (checkboxDeliveryType.checked) {
-    divAddressInfo.classList.remove('d-none');
-    enableFormControls(divAddressInfo);
-  }else{
-    divAddressInfo.classList.add('d-none');
-    disableFormControls(divAddressInfo);
+  const checkboxDeliveryType = document.getElementById("deliveryType");
+  const divAddressInfo = document.getElementById("addressInfo");
+  checkboxDeliveryType.addEventListener("change", function() {
+    if (checkboxDeliveryType.checked) {
+      divAddressInfo.classList.remove('d-none');
+      enableFormControls(divAddressInfo);
+    }else{
+      divAddressInfo.classList.add('d-none');
+      disableFormControls(divAddressInfo);
+    }
+  });
+
+  const checkboxPayType = document.getElementById("payType");
+  const divCardInfo = document.getElementById("cardInfo");
+  checkboxPayType.addEventListener("change", function() {
+    if (checkboxPayType.checked) {
+      divCardInfo.classList.add('d-none');
+      disableFormControls(divCardInfo);
+    }else{
+      divCardInfo.classList.remove('d-none');
+      enableFormControls(divCardInfo);
+    }
+  });
+
+  function disableFormControls(element) {
+    const formControls = element.querySelectorAll("input");
+    formControls.forEach((control) => {
+      control.disabled = true;
+    });
+    const childDivs = element.querySelectorAll("div");
+    childDivs.forEach((div) => {
+      disableFormControls(div);
+    });
   }
-});
 
-const checkboxPayType = document.getElementById("payType");
-const divCardInfo = document.getElementById("cardInfo");
-checkboxPayType.addEventListener("change", function() {
-  if (checkboxPayType.checked) {
-    divCardInfo.classList.add('d-none');
-    disableFormControls(divCardInfo);
-  }else{
-    divCardInfo.classList.remove('d-none');
-    enableFormControls(divCardInfo);
+  function enableFormControls(element) {
+    const formControls = element.querySelectorAll("input");
+    formControls.forEach((control) => {
+      control.disabled = false;
+    });
+    const childDivs = element.querySelectorAll("div");
+    childDivs.forEach((div) => {
+      enableFormControls(div);
+    });
   }
-});
-
-function disableFormControls(element) {
-  const formControls = element.querySelectorAll("input");
-  formControls.forEach((control) => {
-    control.disabled = true;
-  });
-  const childDivs = element.querySelectorAll("div");
-  childDivs.forEach((div) => {
-    disableFormControls(div);
-  });
-}
-
-function enableFormControls(element) {
-  const formControls = element.querySelectorAll("input");
-  formControls.forEach((control) => {
-    control.disabled = false;
-  });
-  const childDivs = element.querySelectorAll("div");
-  childDivs.forEach((div) => {
-    enableFormControls(div);
-  });
-}
 </script>
 
 <script>
 $("#order").on("submit", function(e) {
   e.preventDefault();
   formData = new FormData(this);
-
+  $('#submitOrder'). prop('disabled', true);
   $.ajax({
     url: '/Course-work/components/process_order_info.php',
     type: 'POST',

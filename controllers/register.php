@@ -1,3 +1,5 @@
+<title>Регистрация</title>
+
 <?php
 $active= "";
 

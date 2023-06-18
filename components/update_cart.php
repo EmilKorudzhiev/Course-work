@@ -15,7 +15,5 @@ if(isset($_SESSION["CART"][$id])){
 }else{
     $_SESSION["CART"][$id] = $quantity;
 }
-echo $id;
-echo print_r($_SESSION);
-echo "Added to cart";
+echo "Продукта беше добавен в количката.";
 ?>

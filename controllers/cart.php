@@ -1,3 +1,5 @@
+<title>Количка</title>
+
 <?php
 $active= "cart";
 
@@ -9,3 +11,4 @@ include('../components/cart_body.inc.php');
 
 require('../components/footer.inc.php');
 ?>
+

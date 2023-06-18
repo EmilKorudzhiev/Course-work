@@ -1,3 +1,4 @@
+
 <?php
 $active= "";
 
@@ -9,3 +10,5 @@ include('../components/product_body.inc.php');
 
 require('../components/footer.inc.php');
 ?>
+
+<title>Продукт: <?php echo $productData["name"]?></title>

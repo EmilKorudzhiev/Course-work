@@ -6,21 +6,21 @@
   box-sizing: inherit;
 }
 
-#mainPicTop {
-  border-radius: 0;
-  height: auto;
+.mainPic {
+  box-sizing: border-box;
+  height: calc(100vh - 48px);
   position: relative;
-  background-image: url('../../images/site\ assets/fishing_cropped02.jpg');
-  background-position: center center;
+  background-image: 
+  linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),
+  url('../../images/site\ assets/MainPagePic.jpg');
+  background-position: center;
   background-size: cover;
 }
 
-.container{
-  width: 100%;
-  padding-right: 10px;
-  padding-left: 10px;
-  margin-right: auto;
-  margin-left: auto;
+.mainPic h1, .mainPic h2 {
+  color: #e1f8ff !important;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
 }
 
 body{

@@ -1,3 +1,5 @@
+<title>AI Асистент</title>
+
 <?php
 $active= "ai chat";
 
@@ -9,3 +11,4 @@ require('../components/ai_chat_body.inc.php');
 
 require('../components/footer.inc.php');
 ?>
+

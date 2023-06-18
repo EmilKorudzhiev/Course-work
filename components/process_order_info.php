@@ -36,11 +36,9 @@
         $insertItems -> execute([$order_id, $product, $quantity]);
     }
     
-
     ob_start();
-
     echo '
-    <div class="container pt-5 mt-3">
+    <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-lg-8 list-group p-0 border">
                 <h3 class="text-center">Поръчката беше създадена.</h3>
@@ -56,7 +54,6 @@
     $response = ob_get_clean();
     echo $response;
 
-    //mail user
     require("../components/email_order.inc.php");
     
     unset($_SESSION["CART"]);
