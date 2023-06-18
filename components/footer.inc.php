@@ -1,71 +1,24 @@
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-dark text-white border-top" id="footer">
-  <!-- Section: Social media -->
-  <section class="d-flex justify-content-evenly p-2 border-bottom">
-    <div>
-            <!-- Facebook -->
-            <a
-        class="btn btn-link btn-floating btn-sm text-white m-1"
-        href="#!"
-        ><i class="bi bi-facebook"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a
-        class="btn btn-link btn-floating btn-sm text-white m-1"
-        href="#!"
-
-        ><i class="bi bi-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a
-        class="btn btn-link btn-floating btn-sm text-white m-1"
-        href="#!"
-
-        ><i class="bi bi-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a
-        class="btn btn-link btn-floating btn-sm text-white m-1"
-        href="#!"
-
-        ><i class="bi bi-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a
-        class="btn btn-link btn-floating btn-sm text-white m-1"
-        href="#!"
-
-        ><i class="bi bi-linkedin"></i
-      ></a>
-      
-      <!-- Github -->
-      <a
-        class="btn btn-link btn-floating btn-sm text-white m-1"
-        href="#!"
-
-        ><i class="bi bi-github"></i
-      ></a>
-    </div>
-  </section>
-  <!-- Section: Social media -->
-
+<footer class="text-center text-lg-start text-white border-top" id="footer" style="background-color: #1f5162">
   <!-- Section: Links  -->
-  <section class="">
+  <section class="" style="background-color: #1f5162">
     <div class="container text-center text-md-start mt-5">
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
         <div class="col-sm-6 col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Company name
-          </h6>
+          <h5 class="text-uppercase fw-bold mb-4">
+            Контакти
+          </h5>
           <p>
-            INFO
+            <h6><i class="bi bi-phone me-2"></i> Phone 1: +1 123 456 789</h6>
+          </p>
+          <p>
+            <h6><i class="bi bi-phone me-2"></i> Phone 2: +1 987 654 321</h6>
+          </p>
+          <p>
+            <h6><i class="bi bi-phone me-2"></i> Phone 3: +1 555 123 456</h6>
           </p>
         </div>
         <!-- Grid column -->
@@ -73,11 +26,20 @@
         <!-- Grid column -->
         <div class="col-sm-6 col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            TEXT
-          </h6>
+          <h5 class="text-uppercase fw-bold mb-4">
+            Социални мрежи
+          </h5>
           <p>
-            <a href="#!" class="text-reset">INFO</a>
+            <a class="btn btn-link btn-floating btn-sm text-white m-1" href="https://www.instagram.com/blagotheg/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a class="btn btn-link btn-floating btn-sm text-white m-1" href="https://www.facebook.com/profile.php?id=100009761767075" target="_blank"><i class="bi bi-facebook"></i></a>
+          </p>
+          <p>
+            <a class="btn btn-link btn-floating btn-sm text-white m-1" href="https://www.instagram.com/blue_rose127/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a class="btn btn-link btn-floating btn-sm text-white m-1" href="https://www.facebook.com/profile.php?id=100013961108262" target="_blank"><i class="bi bi-facebook"></i></a>
+          </p>
+          <p>
+            <a class="btn btn-link btn-floating btn-sm text-white m-1" href="https://www.instagram.com/emil_korudzhiev/" target="_blank"><i class="bi bi-instagram"></i></a>
+            <a class="btn btn-link btn-floating btn-sm text-white m-1" href="https://www.facebook.com/emilkorudzhiev" target="_blank"><i class="bi bi-facebook"></i></a>
           </p>
         </div>
         <!-- Grid column -->
@@ -85,11 +47,11 @@
         <!-- Grid column -->
         <div class="col-sm-6 col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
+          <h5 class="text-uppercase fw-bold mb-4">
+            Чат
+          </h5>
           <p>
-            <a href="#!" class="text-reset">INFO</a>
+            <h6><a href="../controllers/ai_chat.php" class="text-reset">AI Chat</a></h6>
           </p>
         </div>
         <!-- Grid column -->
@@ -97,14 +59,19 @@
         <!-- Grid column -->
         <div class="col-sm-6 col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-          <p><i class="bi bi-house me-3"></i> ADDRESS</p>
+          <h5 class="text-uppercase fw-bold mb-4">Адрес</h5>
           <p>
-            <i class="bi bi-envelope me-3"></i>
-            info@example.com
+           <h6><i class="bi bi-geo-alt-fill me-2"></i> PRAVEC, PERUSHA 4</h6> 
           </p>
-          <p><i class="bi bi-phone me-3"></i> + 01 234 567 88</p>
-        
+          <p>
+            <h6><i class="bi bi-envelope-fill me-2"></i> 19505@uktc-bg.com</h6>
+          </p>
+          <p>
+            <h6><i class="bi bi-envelope-fill me-2"></i> 19509@uktc-bg.com</h6>
+          </p>
+          <p>
+           <h6><i class="bi bi-envelope-fill me-2"></i> 19513@uktc-bg.com</h6> 
+          </p>
         </div>
         <!-- Grid column -->
       </div>
@@ -114,11 +81,10 @@
   <!-- Section: Links  -->
 
   <!-- Copyright -->
-  <div class="text-center p-3 border-top" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2023 Copyright
+  <div class="text-center p-3 border-top" style="background-color: #1f5162;">
+    &copy; 2023 Риболовен свят
   </div>
   <!-- Copyright -->
-
 </footer>
 <!-- Footer -->
 

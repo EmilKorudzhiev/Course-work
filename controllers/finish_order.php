@@ -1,4 +1,5 @@
 <title>Поръчка</title>
+<!DOCTYPE html>
 
 <?php
 $active= "cart";

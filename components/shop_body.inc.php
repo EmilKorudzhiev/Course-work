@@ -133,7 +133,7 @@ $(document).ready(function() {
     formData.append('page', '1');
 
     $.ajax({
-      url: '/Course-work/components/store_item_display.php',
+      url: '../components/store_item_display.php',
       type: 'POST',
       data: formData,
       processData: false,
@@ -158,7 +158,7 @@ $(document).ready(function() {
       formData.append('page', value);
 
       $.ajax({
-        url: '/Course-work/components/store_item_display.php',
+        url: '../components/store_item_display.php',
         type: 'POST',
         data: formData,
         processData: false,
@@ -177,7 +177,7 @@ $(document).ready(function() {
       const quantity = 1;
       var productId = e.target.value;
       $.ajax({
-      url: "/Course-work/components/update_cart.php",
+      url: "../components/update_cart.php",
       type: "post",
       data: {
         id: productId,

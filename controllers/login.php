@@ -1,4 +1,5 @@
 <title>Влизане в профил</title>
+<!DOCTYPE html>
 
 <?php
 $active= "";

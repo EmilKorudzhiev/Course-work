@@ -1,4 +1,5 @@
 <title>AI Асистент</title>
+<!DOCTYPE html>
 
 <?php
 $active= "ai chat";

@@ -13,7 +13,7 @@ if(empty($_SESSION["CART"])){
     echo '
         <li class="list-group-item d-flex justify-content-centre align-items-center border mb-2">
             <h2 class="p-3">Количката е празна. Хайде на шопинг.</h2>
-            <a href="/Course-work/controllers/store.php" class="btn btn-primary m-3">Към магазина</a>
+            <a href="../controllers/store.php" class="btn btn-primary m-3">Към магазина</a>
         </li>
         ';
 }else{
@@ -56,7 +56,7 @@ if(empty($_SESSION["CART"])){
                 <h3 class="form-control text-center m-0">'.number_format($priceOfAllElements, 2).'лв.</h3>
             </div>
             <div class="col-12 col-sm-6 d-flex align-items-center justify-content-center justify-content-sm-end">
-                <a href="/Course-work/controllers/finish_order.php" class="btn btn-primary">Завърши поръчка</a>
+                <a href="../controllers/finish_order.php" class="btn btn-primary">Завърши поръчка</a>
             </div>
         </div>
     </li>';

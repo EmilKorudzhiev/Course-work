@@ -1,4 +1,5 @@
 <title>Регистрация</title>
+<!DOCTYPE html>
 
 <?php
 $active= "";

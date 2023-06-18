@@ -1,6 +1,6 @@
 <?php 
     if(!isset($_SESSION["CART"])){
-      header("Location: /Course-work/controllers/store.php");
+      header("Location: ../controllers/store.php");
     }
     if(!isset($_SESSION["USER"])){
         echo '
@@ -9,8 +9,8 @@
                 <div class="col-12 col-lg-8 list-group p-0 border">
                     <h3 class="text-center">За да приключите поръчката трябва да сте влeзли в профила си.</h3>
                     <div class="d-flex justify-content-center p-3">
-                        <a href="/Course-work/controllers/login.php" class="btn btn-primary mx-3">Влез в профил</a>
-                        <a href="/Course-work/controllers/register.php" class="btn btn-primary mx-3">Регистрация</a>
+                        <a href="../controllers/login.php" class="btn btn-primary mx-3">Влез в профил</a>
+                        <a href="../controllers/register.php" class="btn btn-primary mx-3">Регистрация</a>
                     </div>
                 </div>
             </div>
@@ -152,7 +152,7 @@ $("#order").on("submit", function(e) {
   formData = new FormData(this);
   $('#submitOrder'). prop('disabled', true);
   $.ajax({
-    url: '/Course-work/components/process_order_info.php',
+    url: '../components/process_order_info.php',
     type: 'POST',
     data: formData,
     processData: false,

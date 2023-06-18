@@ -1,4 +1,5 @@
 <title>ADMIN Панел</title>
+<!DOCTYPE html>
 
 <?php 
 

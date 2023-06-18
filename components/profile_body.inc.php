@@ -1,7 +1,7 @@
 
 <?php 
     if(!isset($_SESSION["USER"])){
-      header("Location: /Course-work/controllers/home.php");
+      header("Location: ../controllers/home.php");
     }
 
     $sqlGetUser='
@@ -19,11 +19,11 @@
     <div class="row d-flex justify-content-center">
         <div class="col-md-12 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3">
-                <img class="rounded-circle mt-5" width="150px" height="150px" src="/Course-work/images/profile/<?php if($userInfo['picture']){echo $userInfo['picture'];} else{ echo 'default.jpg';} ?>" style="object-fit: cover;">
+                <img class="rounded-circle mt-5" width="150px" height="150px" src="../images/profile/<?php if($userInfo['picture']){echo $userInfo['picture'];} else{ echo 'default.jpg';} ?>" style="object-fit: cover;">
                 <h3 class="font-weight-bold"><?php echo $userInfo['first_name'].' '.$userInfo['last_name']?></h3>
                 <h5 class="text-black-50"><?php echo $userInfo['email']?></h5>
                 <br>
-                <button class="btn btn-primary profile-button" onclick="location.href='/Course-work/components/logout_user.php'">Излез от профила</button>
+                <button class="btn btn-primary profile-button" onclick="location.href='../components/logout_user.php'">Излез от профила</button>
                   
             </div>
         </div>
@@ -96,7 +96,7 @@
     var email = $("#email").val();
 
     $.ajax({
-      url: "/Course-work/components/update_user_details.php",
+      url: "../components/update_user_details.php",
       type: "post",
       data: {
         firstName: firstName,
@@ -122,7 +122,7 @@
     var passwordNew = $("#passwordNew").val();
 
     $.ajax({
-      url: "/Course-work/components/update_user_password.php",
+      url: "../components/update_user_password.php",
       type: "post",
       data: {
         passwordOld:passwordOld,
@@ -142,7 +142,7 @@
     e.preventDefault();
     var formData = new FormData(this);
     $.ajax({
-      url: '/Course-work/components/update_user_picture.php',
+      url: '../components/update_user_picture.php',
       type: 'post',
       data: formData,
       processData: false,

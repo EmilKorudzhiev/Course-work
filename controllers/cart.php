@@ -1,4 +1,5 @@
 <title>Количка</title>
+<!DOCTYPE html>
 
 <?php
 $active= "cart";

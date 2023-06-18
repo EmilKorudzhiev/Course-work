@@ -1,4 +1,5 @@
 <title>Магазин</title>
+<!DOCTYPE html>
 
 <?php
 $active= "store";

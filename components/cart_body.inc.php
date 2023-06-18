@@ -1,3 +1,8 @@
+<style>
+    body {
+        background-color: #1C1C1C;
+    }
+</style>
 <div class="container pt-5 my-5">
     <div class="row d-flex justify-content-center">
         <div class="col-12 col-md-9">
@@ -28,7 +33,7 @@ $(document).ready(function() {
         var id = e.target.value;
         console.log(id);
         $.ajax({
-            url: '/Course-work/components/remove_item_cart.php',
+            url: '../components/remove_item_cart.php',
             type: 'POST',
             data: {
                 productId:id

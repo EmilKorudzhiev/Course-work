@@ -1,6 +1,6 @@
 <?php 
 if(isset($_SESSION["USER"])){
-    header("Location: /Course-work/controllers/home.php");
+    header("Location: ../controllers/home.php");
 }
 ?>
 
@@ -59,7 +59,7 @@ if(isset($_SESSION["USER"])){
     var password = $("#password").val();
 
     $.ajax({
-      url: "/Course-work/components/register_user.php",
+      url: "../components/register_user.php",
       type: "post",
       data: {
         name: name,
@@ -71,7 +71,7 @@ if(isset($_SESSION["USER"])){
       dataType: "json",
       success: function(response) {
         if(response.status == "Email not used"){
-          window.location.href = '/Course-work/controllers/home.php';
+          window.location.href = '../controllers/home.php';
         }else{
           document.getElementById("emailError").innerHTML = "Email is already registered please enter a diffrent email!";
         }

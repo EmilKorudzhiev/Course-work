@@ -44,7 +44,7 @@
                 <h3 class="text-center">Поръчката беше създадена.</h3>
                 <h5 class="text-center">На имейла Ви ще бъде изпратена информация за поръчката.</h5>
                 <div class="d-flex justify-content-center p-3">
-                    <a href="/Course-work/controllers/home.php" class="btn btn-primary mx-3">Към началната страница</a>
+                    <a href="../controllers/home.php" class="btn btn-primary mx-3">Към началната страница</a>
                 </div>
             </div>
         </div>

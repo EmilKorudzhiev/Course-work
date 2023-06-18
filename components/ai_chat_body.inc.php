@@ -26,7 +26,7 @@
                 ></span>
             </h3>
 
-            <button class="btn btn-outline-dark p-1" onclick="location.href='/Course-work/components/ai_chat_clear_history.php'" >
+            <button class="btn btn-outline-dark p-1" onclick="location.href='../components/ai_chat_clear_history.php'" >
                 <span class="d-none d-sm-block">Изтрии история</span>
                 <i class="bi bi-trash h-2 d-sm-none h4"></i>
             </button>
@@ -74,7 +74,7 @@ $("#sendMessage").on("submit", function(e) {
     var message = $("#message").val();
 
     $.ajax({
-      url: "/Course-work/components/ai_chat_message_response.php",
+      url: "../components/ai_chat_message_response.php",
       type: "post",
       data: {
         message: message

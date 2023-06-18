@@ -65,7 +65,7 @@ SELECT products.id, products.name, products.description, products.price,
                         foreach ($productData["images"] as $img) {
                             echo '
                             <div class="carousel-item '.($isActive ? 'active':'').'">
-                            <img src="/Course-work/images/shop items/'.$img.'" class="d-block w-100 rounded" alt="'.$img.'">
+                            <img src="../images/shop items/'.$img.'" class="d-block w-100 rounded" alt="'.$img.'">
                             </div>
                             ';
                             $isActive = false;
@@ -144,7 +144,7 @@ SELECT products.id, products.name, products.description, products.price,
     alert(id);
 
     $.ajax({
-      url: "/Course-work/components/update_cart.php",
+      url: "../components/update_cart.php",
       type: "post",
       data: {
         id: id,

@@ -1,9 +1,14 @@
 <?php 
 if(isset($_SESSION["USER"])){
-    header("Location: /Course-work/controllers/home.php");
+    header("Location: ../controllers/home.php");
 }
 ?>
 
+<style>
+    body {
+        background-color: #1C1C1C;
+    }
+</style>
 <div class="container py-5 mt-5">
     <div class="row">
       <div class="col-md-6 col-xl-5 mx-auto">
@@ -44,7 +49,7 @@ if(isset($_SESSION["USER"])){
     var password = $("#password").val();
 
     $.ajax({
-      url: "/Course-work/components/login_user.php",
+      url: "../components/login_user.php",
       type: "post",
       data: {
         email: email,
@@ -53,7 +58,7 @@ if(isset($_SESSION["USER"])){
       dataType: "json",
       success: function(response) {
         if(response.status == "Correct info"){
-          window.location.href = '/Course-work/controllers/home.php';
+          window.location.href = '../controllers/home.php';
         }else{
           document.getElementById("wrongCredentials").innerHTML = "Password or email incorrect!";
         }
