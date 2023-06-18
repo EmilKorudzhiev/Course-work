@@ -1,7 +1,7 @@
 <title>Магазин</title>
 
 <?php
-$active= "store";
+$active= "shop";
 
 require('../components/database_connection.inc.php');
 

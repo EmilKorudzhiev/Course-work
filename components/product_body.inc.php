@@ -141,7 +141,6 @@ SELECT products.id, products.name, products.description, products.price,
     e.preventDefault();
     var quantity = $("#quantity").val();
     var id = $("#add").val();
-    alert(id);
 
     $.ajax({
       url: "/Course-work/components/update_cart.php",

@@ -1,12 +1,3 @@
-<?php 
-if(isset($_SESSION["USER"])){
-  debug_to_console($_SESSION["USER"]);
-  } 
-if(isset($_SESSION["CART"])){
-  debug_to_console($_SESSION["CART"]);
-} 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,6 +10,7 @@ if(isset($_SESSION["CART"])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     
+    <link rel="icon" href="/Course-work/images/site assets/MV_Letters.svg" type="image/svg+xml"/>
   </head>
 <body>
 
@@ -27,10 +19,10 @@ if(isset($_SESSION["CART"])){
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-1 border-bottom" id="header">
-    <div class="container-fluid">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top p-1 border-bottom" id="header">
+    <div class="container-fluid p-0">
       <div class="me-2">
-        <svg viewBox="0 0 256 120" style="height: 60px;">
+        <svg viewBox="0 0 256 120" style="height: 40px;">
           <style type="text/css">
             .st0{fill:none;stroke:#fff;stroke-width:2;stroke-miterlimit:10;}
             .st1{fill:none;stroke:#fff;stroke-width:5;stroke-miterlimit:10;}
@@ -64,30 +56,30 @@ if(isset($_SESSION["CART"])){
             c2.87-7.55-1.43-14.09-2.19-15.24c-5.22-7.95-14.66-8.41-15.64-8.44C201.42,63.41,197.5,63.44,193.59,63.48z"/>
         </svg>
       </div>
-      <a class="navbar-brand" href="/Course-work/controllers/home.php">Метна-Вадя</a>
+      <a class="navbar-brand m-0" href="/Course-work/controllers/home.php">Метна-Вадя</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-lg-0 d-flex align-items-start">
+        <ul class="navbar-nav me-auto mb-md-0 d-flex align-items-start">
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'home' ) echo " active" ?>" aria-current="page" href="/Course-work/controllers/home.php">Начало</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link<?php if ( $active == 'store' ) echo " active" ?>" href="/Course-work/controllers/store.php">Магазин</a>
+            <a class="nav-link<?php if ( $active == 'shop' ) echo " active" ?>" href="/Course-work/controllers/shop.php">Магазин</a>
           </li>
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'ai chat' ) echo " active" ?>" href="/Course-work/controllers/ai_chat.php">AI Асистент</a>
           </li>
         </ul>
 
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-start">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0 d-flex align-items-start">
           <li class="nav-item">
             <a class="nav-link<?php if ( $active == 'cart' ) echo " active" ?>" href="/Course-work/controllers/cart.php"><span class="bi bi-cart h5"></span> Количка</a>
           </li>
           <li class="nav-item">
             <a class="nav-link p-0" href="<?php if(isset($_SESSION["USER"])){echo '/Course-work/controllers/user_profile.php';} else{ echo '/Course-work/controllers/login.php';} ?>">
-              <img src="/Course-work/images/<?php if(isset($_SESSION["USER"][4])){echo 'profile/'.$_SESSION["USER"][4];} else{ echo 'site assets/defaultProfile.jpg';} ?>" alt="Profile" class="rounded-circle" width="30" height="30" style="object-fit: cover;">
+              <img src="/Course-work/images/<?php if(isset($_SESSION["USER"][4])){echo 'profile/'.$_SESSION["USER"][4];} else{ echo 'site assets/defaultProfile.jpg';} ?>" alt="Profile" class="rounded-circle" width="36" height="36" style="object-fit: cover;">
             </a>
           </li>
         </ul>

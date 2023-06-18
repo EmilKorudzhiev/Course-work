@@ -13,7 +13,7 @@ if(empty($_SESSION["CART"])){
     echo '
         <li class="list-group-item d-flex justify-content-centre align-items-center border mb-2">
             <h2 class="p-3">Количката е празна. Хайде на шопинг.</h2>
-            <a href="/Course-work/controllers/store.php" class="btn btn-primary m-3">Към магазина</a>
+            <a href="/Course-work/controllers/shop.php" class="btn btn-primary m-3">Към магазина</a>
         </li>
         ';
 }else{

@@ -35,13 +35,11 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
 
 <h1 class="text-danger text-center my-3">ADMIN PANEL</h1>  
 
-//make it work for redacting elements
-//picture are ordered alphabetically
-
 <div class="container mb-5">
   <div class="row justify-content-center">
     <div class="col-10 col-sm-8 col-lg-7 border border-black mb-3">
       <h2>Добавяне на продукт</h2>
+      <p>Снимките се подреждат по азбучен рен</p>
       <form id="addProductForm">
         <div class="mb-3">
           <label for="productName" class="form-label">Име</label>
@@ -109,7 +107,8 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
       processData: false,
       contentType: false,
       success: function(response) {
-        alert("Item added");
+        alert("Добавянето е успешно!");
+        location.reload();
       },
       error: function(xhr, status, error) {
         console.log(xhr.responseText);
@@ -130,9 +129,11 @@ $resultTags = $connection -> query($sqlGetTags) -> fetchAll();
       dataType: "json",
       success: function(response) {
         if(response.status == "tagDoesntExist"){
-          document.getElementById("tagError").innerHTML = "Добавянето е успешно!";
+          alert("Добавянето е успешно!");
+          location.reload();
         }else{
-          document.getElementById("tagError").innerHTML = "Този таг вече съществува!";
+          alert("Този таг вече съществува!");
+          location.reload();
         }
       },
       error: function(xhr, status, error) {
