@@ -6,7 +6,8 @@ if(isset($_SESSION["USER"])){
 
 <style>
     body {
-        background-color: #1C1C1C;
+      background-image: url("../images/toppictures/pic4.jpeg")
+     
     }
 </style>
 <div class="container py-5 mt-5">

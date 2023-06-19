@@ -19,51 +19,79 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <style>
-        /* Custom styling for the header */
-        .custom-header {
-            background-color: #1f5162;
-            color: #ffffff;
-        }
-
-        .custom-header .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .custom-header .nav-link {
-            color: #ffffff;
-        }
-
-        .custom-header .nav-link.active {
-            color: #ffca28;
-        }
-
-        .custom-header .bi-cart {
-            font-size: 1.5rem;
-            vertical-align: middle;
-        }
-
-        .custom-header .profile-image {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-        }
-        
-    </style>
-
-</head>
     
-    <link rel="icon" href="/Course-work/images/site assets/MV_Letters.svg" type="image/svg+xml"/>
   </head>
 <body>
+<style>
+    header {
+  background-color: #1f5162;
+  padding: 10px 0;
+}
 
+/* Style the navbar links */
+.navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #ffc107;
+}
+
+/* Style the logo */
+.navbar-brand {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+/* Style the shopping cart icon */
+.bi-cart {
+  font-size: 1.2rem;
+}
+
+/* Style the user profile image */
+.navbar-nav .nav-link img {
+  border-radius: 50%;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 767px) {
+  /* Reduce padding for smaller screens */
+  .navbar {
+    padding: 0.5rem 0;
+  }
+
+  /* Center the logo and collapse the navbar links */
+  .navbar-brand {
+    margin-right: auto;
+  }
+
+  .navbar-collapse {
+    justify-content: flex-end;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.5rem;
+  }
+
+  /* Adjust the spacing for the shopping cart and profile image */
+  .navbar-nav .nav-link:last-child {
+    margin-top: 0.5rem;
+  }
+}
+</style>
+    
+    <link rel="icon" href="../images/site assets/MV_Letters.svg" type="image/svg+xml"/>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-dark custom-header fixed-top p-1 border-bottom" id="header">
-    <div class="container-fluid">
-      <img class="navbar-brand" src="https://via.placeholder.com/45x45" alt="">
-      <a class="navbar-brand" href="../controllers/home.php">Риболовен свят</a>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top p-1 border-bottom" id="header">
+  
+<nav class="navbar navbar-expand-md navbar-dark fixed-top p-1 border-bottom" id="header" style="background-color: #1f5162;">
     <div class="container-fluid p-0">
       <div class="me-2">
         <svg viewBox="0 0 256 120" style="height: 40px;">
@@ -100,7 +128,7 @@
             c2.87-7.55-1.43-14.09-2.19-15.24c-5.22-7.95-14.66-8.41-15.64-8.44C201.42,63.41,197.5,63.44,193.59,63.48z"/>
         </svg>
       </div>
-      <a class="navbar-brand m-0" href="/Course-work/controllers/home.php">Метна-Вадя</a>
+      <a class="navbar-brand m-0" href="../controllers/home.php">Метна-Вадя</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -124,7 +152,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link p-0" href="<?php if(isset($_SESSION["USER"])){echo '/Course-work/controllers/user_profile.php';} else{ echo '/Course-work/controllers/login.php';} ?>">
-              <img src="/Course-work/images/<?php if(isset($_SESSION["USER"][4])){echo 'profile/'.$_SESSION["USER"][4];} else{ echo 'site assets/defaultProfile.jpg';} ?>" alt="Profile" class="rounded-circle" width="36" height="36" style="object-fit: cover;">
+              <img src="../images/<?php if(isset($_SESSION["USER"][4])){echo 'profile/'.$_SESSION["USER"][4];} else{ echo 'site assets/defaultProfile.jpg';} ?>" alt="Profile" class="rounded-circle" width="36" height="36" style="object-fit: cover;">
             </a>
           </li>
         </ul>

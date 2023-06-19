@@ -1,6 +1,7 @@
 <title>Начало</title>
 <!DOCTYPE html>
 
+
 <?php
 $active= "home";
 

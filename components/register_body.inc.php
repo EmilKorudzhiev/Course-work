@@ -3,7 +3,11 @@ if(isset($_SESSION["USER"])){
     header("Location: ../controllers/home.php");
 }
 ?>
-
+<style>
+  body{
+    background-image: url("../images/toppictures/pic4.jpg")
+  }
+</style>
 <div class="container py-5 mt-5">
     <div class="row">
         <div class="col-md-6 col-xl-5 mx-auto">
