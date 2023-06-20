@@ -67,8 +67,6 @@ var popover = new bootstrap.Popover(document.getElementById('info'));
 $("#sendMessage").on("submit", function(e) {
     e.preventDefault();
     
-    
-
     $('#submit'). prop('disabled', true);
 
     var message = $("#message").val();
@@ -81,7 +79,6 @@ $("#sendMessage").on("submit", function(e) {
       },
       dataType: "json",
       success: function(response) {
-        console.log(response);
 
         var prompt = response.prompt;
         var answer = response.answer;
@@ -91,7 +88,8 @@ $("#sendMessage").on("submit", function(e) {
         $('#chatBody').append(answer);
 
         $("#message").val("");
-        button.disabled = false;
+
+        $('#submit'). prop('disabled', false)
         }, 5);
       },
       error: function(xhr, status, error) {
