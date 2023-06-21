@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php 
 $sqlGetTags = "
 SELECT tags.tag ,COUNT(tags.tag) as count FROM tags
@@ -17,7 +18,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
 
 ?>
 <div class="container-fluid m-0 mt-5 w-100">
-    <div class="row flex-nowrap overflow-hidden">
+    <div class="row flex-nowrap overflow-hidden minheight">
         <div class="col-12 col-md-2 collapse d-md-block bg-dark text-white px-0 pb-3" id="sidebar">
 
           <form id="filters">
@@ -133,7 +134,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
       formData.append('page', '1');
 
       $.ajax({
-        url: '/Course-work/components/shop_item_display.php',
+        url: '../components/shop_item_display.php',
         type: 'POST',
         data: formData,
         processData: false,
@@ -148,21 +149,6 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
       });
     });
 
-    if(e.target.classList.contains('addToCartButton')){
-      const quantity = 1;
-      var productId = e.target.value;
-      $.ajax({
-      url: "../components/update_cart.php",
-      type: "post",
-      data: {
-        id: productId,
-        quantity: quantity
-      },
-      success: function(response) {
-        alert(response);
-      },
-      error: function(xhr, status, error) {
-        console.log(xhr.responseText);
     $("#filters").submit();
 
     const container = document.querySelector('#items');
@@ -173,7 +159,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
         formData.append('page', value);
 
         $.ajax({
-          url: '/Course-work/components/shop_item_display.php',
+          url: '../components/shop_item_display.php',
           type: 'POST',
           data: formData,
           processData: false,
@@ -192,7 +178,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
         const quantity = 1;
         var productId = e.target.value;
         $.ajax({
-        url: "/Course-work/components/update_cart.php",
+        url: "../components/update_cart.php",
         type: "post",
         data: {
           id: productId,

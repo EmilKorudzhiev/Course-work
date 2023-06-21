@@ -13,7 +13,7 @@ if(empty($_SESSION["CART"])){
     echo '
         <li class="list-group-item d-flex justify-content-centre align-items-center border mb-2">
             <h2 class="p-3">Количката е празна. Хайде на шопинг.</h2>
-            <a href="../controllers/store.php" class="btn btn-primary m-3">Към магазина</a>
+            <a href="../controllers/shop.php" class="btn btn-primary m-3">Към магазина</a>
         </li>';
 }else{
     $priceOfAllElements = 0;
@@ -24,7 +24,7 @@ if(empty($_SESSION["CART"])){
         <li class="list-group-item d-flex justify-content-between align-items-center border mb-2">
             <div class="row">
                 <div class="col-12 col-sm-2 p-0 d-flex align-items-center">
-                    <img class="rounded float-left img-fluid" src="\Course-work\images\shop items\\'.$getProductResult['path'].'" alt="'.$getProductResult['path'].'">
+                    <img class="rounded float-left img-fluid" src="../images/shop items\\'.$getProductResult['path'].'" alt="'.$getProductResult['path'].'">
                 </div>
                 <div class="col-12 col-sm-4 p-1 d-flex align-items-center">
                     <h3 class="form-control m-0">'.$getProductResult['name'].'</h3>
