@@ -4,7 +4,7 @@
     }
 </style>
 <div class="container pt-5 my-5">
-    <div class="row d-flex justify-content-center">
+    <div class="row d-flex justify-content-center minheight">
         <div class="col-12 col-md-9">
             <div class="card">
 
