@@ -23,14 +23,12 @@
 
 }
 
-body{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.minheight{
+  min-height: 75vh;
 }
 
-footer{
-  margin-top: auto;
+body{
+  min-height: 100vh;
 }
 
 * {

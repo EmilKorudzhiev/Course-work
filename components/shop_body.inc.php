@@ -17,7 +17,7 @@ $maxPrice = $connection->query($sqlGetMaxPrice)->fetch();
 
 ?>
 <div class="container-fluid m-0 mt-5 w-100">
-    <div class="row flex-nowrap overflow-hidden">
+    <div class="row flex-nowrap overflow-hidden minheight">
         <div class="col-12 col-md-2 collapse d-md-block bg-dark text-white px-0 pb-3" id="sidebar">
 
           <form id="filters">

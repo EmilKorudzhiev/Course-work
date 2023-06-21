@@ -86,7 +86,7 @@ try {
                        margin-bottom: 20px;">Поръчка</h1>
 
             <p style="font-size: 12px;
-                      margin-bottom: 10px;">Благодарим за пръчката Ви, ето какво сте си поръчали:</p>
+                      margin-bottom: 10px;">Благодарим за поръчката Ви, ето какво сте си поръчали:</p>
             
             <table style="width: 100%;
                           border-collapse: collapse;">
